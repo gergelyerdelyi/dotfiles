@@ -109,6 +109,10 @@
 		(list "epylint" (list local-file))))
 	    (add-to-list 'flymake-allowed-file-name-masks
 			 '("\\.py\\'" flymake-pylint-init))))
+(add-hook 'python-mode-hook
+	  (lambda ()
+	    (flymake-mode 1)))
+
 
 ;; Load the hacked diff view mode
 (add-hook 'diff-mode-hook
