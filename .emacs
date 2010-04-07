@@ -111,8 +111,8 @@
 			 '("\\.py\\'" flymake-pylint-init))))
 (add-hook 'python-mode-hook
 	  (lambda ()
-	    (flymake-mode 1)))
-
+	    (flymake-mode 1)
+	    (setq indent-tabs-mode nil)))
 
 ;; Load the hacked diff view mode
 (add-hook 'diff-mode-hook
