@@ -119,6 +119,13 @@
 	  (lambda ()
 	    (require 'diff-mode-)))
 
+;; Activate the full-ack mode for ack
+(autoload 'ack-same "full-ack" nil t)
+(autoload 'ack "full-ack" nil t)
+(autoload 'ack-find-same-file "full-ack" nil t)
+(autoload 'ack-find-file "full-ack" nil t)
+(global-set-key '[f7] 'ack)
+
 ;; Setup Emacs to run bash as its primary shell.
 (setq shell-file-name "bash")
 (setq shell-command-switch "-c")
