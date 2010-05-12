@@ -114,6 +114,9 @@
 	    (flymake-mode 1)
 	    (setq indent-tabs-mode nil)))
 
+;; Activate html-mode for HTML files
+(setq auto-mode-alist (cons '("\\.html$" . html-mode) auto-mode-alist))
+
 ;; Load the hacked diff view mode
 (add-hook 'diff-mode-hook
 	  (lambda ()
