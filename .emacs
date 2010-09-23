@@ -26,6 +26,8 @@
 (global-set-key '[M-left]  'backward-symbol)
 (global-set-key '[M-right] 'forward-symbol)
 
+(global-set-key "\M- " 'hippie-expand)
+
 ;; Fix indentation, the way I like it
 (setq c-mode-hook
     (function (lambda ()
@@ -114,10 +116,26 @@
 	    (flymake-mode 1)
 	    (setq indent-tabs-mode nil)))
 
+;; Activate html-mode for HTML files
+(setq auto-mode-alist (cons '("\\.html$" . html-mode) auto-mode-alist))
+
+;; Make Cmd-Left/Right jump between tags
+(add-hook 'html-mode-hook
+	  (lambda ()
+	    (define-key html-mode-map (kbd "<C-left>") 'sgml-skip-tag-backward)
+	    (define-key html-mode-map (kbd "<C-right>") 'sgml-skip-tag-forward)))
+
 ;; Load the hacked diff view mode
 (add-hook 'diff-mode-hook
 	  (lambda ()
 	    (require 'diff-mode-)))
+
+;; Activate the full-ack mode for ack
+(autoload 'ack-same "full-ack" nil t)
+(autoload 'ack "full-ack" nil t)
+(autoload 'ack-find-same-file "full-ack" nil t)
+(autoload 'ack-find-file "full-ack" nil t)
+(global-set-key '[f7] 'ack)
 
 ;; Setup Emacs to run bash as its primary shell.
 (setq shell-file-name "bash")
