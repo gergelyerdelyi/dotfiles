@@ -157,6 +157,10 @@
 ;; Use Spotlight for locate
 (setq locate-command "mdfind")
 
+;; Activate Autopair for nice automagic () pairs
+(require 'autopair)
+(autopair-global-mode t) ;; enable in all buffers
+
 ;; Print the time info
 (message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
 				     (- (+ hi lo) (+ (first *emacs-load-start*) (second *emacs-load-start*)))))
