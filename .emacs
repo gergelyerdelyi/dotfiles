@@ -161,6 +161,11 @@
 (require 'autopair)
 (autopair-global-mode t) ;; enable in all buffers
 
+;; Set up bookmarks (to be used w/ C-x r {m|b|l})
+(setq
+ bookmark-default-file "~/.elisp/bookmarks"
+ bookmark-save-flag 1)
+
 ;; Print the time info
 (message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
 				     (- (+ hi lo) (+ (first *emacs-load-start*) (second *emacs-load-start*)))))
