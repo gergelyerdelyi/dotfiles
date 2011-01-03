@@ -20,8 +20,9 @@
 (global-set-key (kbd "C-{") 'previous-tab-or-buffer)
 (global-set-key (kbd "C-}") 'next-tab-or-buffer)
 
-(define-key osx-key-mode-map [home] 'beginning-of-line)
-(define-key osx-key-mode-map [end] 'end-of-line)
+; Incompatible w/ the regular Emacs build
+;(define-key osx-key-mode-map [home] 'beginning-of-line)
+;(define-key osx-key-mode-map [end] 'end-of-line)
 
 (global-set-key '[M-left]  'backward-symbol)
 (global-set-key '[M-right] 'forward-symbol)
@@ -47,11 +48,6 @@
 
 ;; Turn off the toolbar
 (tool-bar-mode 0)
-
-;; Kill smart-ass frame positioning
-(smart-frame-positioning-mode nil)
-;; ...and repositioning
-(setq fit-frame-inhibit-fitting-flag t)
 
 ;; Integrate with Mac clipboard
 (setq x-select-enable-clipboard t)
@@ -108,7 +104,7 @@
 		     (local-file (file-relative-name
 				  temp-file
 				  (file-name-directory buffer-file-name))))
-		(list "epylint" (list local-file))))
+		(list "~/.elisp/epylint" (list local-file))))
 	    (add-to-list 'flymake-allowed-file-name-masks
 			 '("\\.py\\'" flymake-pylint-init))))
 (add-hook 'python-mode-hook
