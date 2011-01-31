@@ -7,7 +7,7 @@ import sys
 
 from subprocess import *
 
-p = Popen("pylint -f parseable -r n --disable-msg-cat=C,R %s" %
+p = Popen("pylint -f parseable -r n --disable=C,R %s" %
           sys.argv[1], shell = True, stdout = PIPE).stdout
 
 for line in p.readlines():
