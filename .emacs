@@ -14,15 +14,14 @@
   (forward-symbol (- (or arg 1)))) 
 
 ;; Crazy keyboard shortcut settings
-(global-set-key (kbd "M-]") 'other-window)
-(global-set-key (kbd "M-[") 'other-previous-window)
+(global-set-key (kbd "C-{") 'other-window)
+(global-set-key (kbd "C-}") 'other-previous-window)
 
-(global-set-key (kbd "C-{") 'previous-tab-or-buffer)
-(global-set-key (kbd "C-}") 'next-tab-or-buffer)
+;(global-set-key (kbd "M-[") 'previous-tab-or-buffer)
+;(global-set-key (kbd "M-]") 'next-tab-or-buffer)
 
-; Incompatible w/ the regular Emacs build
-;(define-key osx-key-mode-map [home] 'beginning-of-line)
-;(define-key osx-key-mode-map [end] 'end-of-line)
+;; Make Home/End keys work properly
+(pc-bindings-mode)
 
 (global-set-key '[M-left]  'backward-symbol)
 (global-set-key '[M-right] 'forward-symbol)
