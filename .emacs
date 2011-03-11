@@ -28,6 +28,9 @@
 
 (global-set-key "\M- " 'hippie-expand)
 
+;; Disable ~ backups, that's what git is for ;)
+(setq make-backup-files nil)
+
 ;; Fix indentation, the way I like it
 (setq c-mode-hook
     (function (lambda ()
