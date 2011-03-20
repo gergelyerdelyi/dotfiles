@@ -31,6 +31,9 @@
 ;; Disable ~ backups, that's what git is for ;)
 (setq make-backup-files nil)
 
+;; Set a decently sized font
+(set-default-font "-apple-Andale_Mono-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+
 ;; Fix indentation, the way I like it
 (setq c-mode-hook
     (function (lambda ()
