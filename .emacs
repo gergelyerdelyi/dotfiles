@@ -15,10 +15,11 @@
 
 ;; Crazy keyboard shortcut settings
 (global-set-key (kbd "C-{") 'other-window)
-(global-set-key (kbd "C-}") 'other-previous-window)
+(global-set-key (kbd "C-}") 'other-window-previous)
 
-;(global-set-key (kbd "M-[") 'previous-tab-or-buffer)
-;(global-set-key (kbd "M-]") 'next-tab-or-buffer)
+(defun other-window-previous ()
+  (interactive)
+  (other-window -1))
 
 ;; Make Home/End keys work properly
 (pc-bindings-mode)
