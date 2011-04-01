@@ -113,7 +113,7 @@
 		     (local-file (file-relative-name
 				  temp-file
 				  (file-name-directory buffer-file-name))))
-		(list "epylint-2.6" (list local-file))))
+		(list "/opt/local/bin/epylint-2.6" (list local-file))))
 	    (add-to-list 'flymake-allowed-file-name-masks
 			 '("\\.py\\'" flymake-pylint-init))))
 (add-hook 'python-mode-hook
