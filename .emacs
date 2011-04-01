@@ -33,7 +33,7 @@
 (setq make-backup-files nil)
 
 ;; Set a decently sized font
-(set-default-font "-apple-Andale_Mono-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+(set-default-font "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
 
 ;; y will suffice for yes
 (defalias 'yes-or-no-p 'y-or-n-p)
