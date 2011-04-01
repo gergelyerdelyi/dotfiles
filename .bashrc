@@ -11,4 +11,9 @@ fi
 source ~/.git-completion.sh
 
 # Funky git prompt
+export GIT_PS1_SHOWDIRTYSTATE=1
 PS1='\h:\W$(__git_ps1 " (%s)")\$ '
+
+if [ -f ~/.bashrc.local ] ; then
+    source ~/.bashrc.local
+fi
