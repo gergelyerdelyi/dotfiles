@@ -35,6 +35,9 @@
 ;; Set a decently sized font
 (set-default-font "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
 
+;; Enable column numbers
+(column-number-mode)
+
 ;; y will suffice for yes
 (defalias 'yes-or-no-p 'y-or-n-p)
 
