@@ -174,6 +174,13 @@
  bookmark-default-file "~/.elisp/bookmarks"
  bookmark-save-flag 1)
 
+;; Erlang mode set up for the MacPorts version
+(setq load-path (cons "/opt/local/lib/erlang/lib/tools-2.6.6.2/emacs/"
+		      load-path))
+(setq erlang-root-dir "/usr/local/lib/erlang")
+(setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
+(require 'erlang-start)
+
 ;; Print the time info
 (message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
 				     (- (+ hi lo) (+ (first *emacs-load-start*) (second *emacs-load-start*)))))
