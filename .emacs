@@ -7,6 +7,9 @@
 
 (add-to-list 'load-path (expand-file-name "~/.elisp"))
 
+;; UTF-8 is great(tm)
+(set-language-environment "utf-8")
+
 (defun backward-symbol (&optional arg) 
   "Move backward until encountering the beginning of a symbol. 
    With argument, do this that many times." 
@@ -185,6 +188,13 @@
 (defun insert-date ()
   (interactive
    (insert (format-time-string "%a, %d %b %Y %T %z"))))
+
+;; Set up Slime for Clozure
+(add-to-list 'load-path "~/.elisp/slime/")
+(setq inferior-lisp-program "/opt/local/bin/ccl64 -K utf-8")
+(require 'slime)
+(setq slime-net-coding-system 'utf-8-unix)
+(slime-setup '(slime-fancy))
 
 ;; Print the time info
 (message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
