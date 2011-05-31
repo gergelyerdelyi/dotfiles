@@ -181,6 +181,11 @@
 (setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
 (require 'erlang-start)
 
+;; Insert a standard date
+(defun insert-date ()
+  (interactive
+   (insert (format-time-string "%a, %d %b %Y %T %z"))))
+
 ;; Print the time info
 (message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
 				     (- (+ hi lo) (+ (first *emacs-load-start*) (second *emacs-load-start*)))))
