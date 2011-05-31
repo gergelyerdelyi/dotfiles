@@ -17,3 +17,6 @@ PS1='\h:\W$(__git_ps1 " (%s)")\$ '
 if [ -f ~/.bashrc.local ] ; then
     source ~/.bashrc.local
 fi
+
+alias mc='mc -b'
+
