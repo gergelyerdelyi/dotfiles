@@ -33,7 +33,7 @@
 (setq make-backup-files nil)
 
 ;; Set a decently sized font
-(set-default-font "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+(set-default-font "-apple-Inconsolata-medium-normal-normal-*-18-*-*-*-m-0-iso10646-1")
 
 ;; Enable column numbers
 (column-number-mode)
