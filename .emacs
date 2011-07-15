@@ -64,6 +64,9 @@
 ;; Turn off the toolbar
 (tool-bar-mode 0)
 
+;; Turn off scrollbars
+(scroll-bar-mode 0)
+
 ;; Integrate with Mac clipboard
 (setq x-select-enable-clipboard t)
 
