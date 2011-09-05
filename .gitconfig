@@ -1,0 +1,13 @@
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[alias]
+	s = status
+	d = diff
+	c = commit
+	b = branch
+	co = checkout
+[branch]
+	autosetuprebase = always
