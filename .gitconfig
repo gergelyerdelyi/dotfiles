@@ -11,3 +11,5 @@
 	co = checkout
 [branch]
 	autosetuprebase = always
+[merge]
+	tool = xxdiff
