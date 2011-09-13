@@ -193,11 +193,11 @@
    (insert (format-time-string "%a, %d %b %Y %T %z"))))
 
 ;; Set up Slime for Clozure
-(add-to-list 'load-path "~/.elisp/slime/")
+(add-to-list 'load-path "/opt/local/share/emacs/site-lisp/slime")
 (setq inferior-lisp-program "/opt/local/bin/ccl64 -K utf-8")
 (require 'slime)
 (setq slime-net-coding-system 'utf-8-unix)
-(slime-setup '(slime-fancy))
+(slime-setup  '(slime-repl slime-asdf slime-fancy slime-banner))
 
 ;; Print the time info
 (message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
