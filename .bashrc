@@ -18,5 +18,6 @@ if [ -f ~/.bashrc.local ] ; then
     source ~/.bashrc.local
 fi
 
+# Make Midnight Command black & white
 alias mc='mc -b'
 
