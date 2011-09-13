@@ -21,3 +21,5 @@ fi
 # Make Midnight Command black & white
 alias mc='mc -b'
 
+# Filter for less to handle some binaries files (archives and such)
+export LESSOPEN='| /opt/local/bin/lesspipe.sh %s'
