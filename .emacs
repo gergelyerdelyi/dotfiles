@@ -7,6 +7,16 @@
 
 (add-to-list 'load-path (expand-file-name "~/.elisp"))
 
+;; Ask the shell for enviroment variables
+(defun setenv-from-shell (varname)
+  (setenv varname (replace-regexp-in-string
+                   "[ \t\n]*$"
+                   ""
+                   (shell-command-to-string (concat "$SHELL --login -i -c 'echo $" varname "'")))))
+
+(setenv-from-shell "PATH")
+(setenv-from-shell "PYTHONPATH")
+
 ;; UTF-8 is great(tm)
 (set-language-environment "utf-8")
 
