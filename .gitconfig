@@ -9,7 +9,13 @@
 	c = commit
 	b = branch
 	co = checkout
+	ff = merge --ff-only
+	fa = fetch --all
 [branch]
 	autosetuprebase = always
 [merge]
 	tool = xxdiff
+[core]
+	quotepath = false
+[user]
+	name = 
