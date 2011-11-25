@@ -181,10 +181,6 @@
 ;; Use Spotlight for locate
 (setq locate-command "mdfind")
 
-;; Activate Autopair for nice automagic () pairs
-;; (require 'autopair)
-;; (autopair-global-mode t) ;; enable in all buffers
-
 ;; Set up bookmarks (to be used w/ C-x r {m|b|l})
 (setq
  bookmark-default-file "~/.elisp/bookmarks"
