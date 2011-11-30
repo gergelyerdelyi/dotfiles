@@ -124,6 +124,8 @@
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (pymacs-load "ropemacs" "rope-")
+	    (setq ropemacs-enable-autoimport t)
+	    (ropemacs-mode)
 	    (load-file "~/.elisp/pylint.el"))
 	  (when (load "flymake" t)
 	    (defun flymake-pylint-init ()
