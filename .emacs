@@ -119,13 +119,10 @@
 (add-hook 'python-mode-hook '(lambda () 
      (define-key python-mode-map "\C-m" 'newline-and-indent)))
 
-;; Load up Pymacs and rope and pylint
+;; Load up Pymacs and configure pylint for flymake
 (autoload 'pymacs-load "pymacs" "pymacs" t)
 (add-hook 'python-mode-hook
 	  (lambda ()
-	    (pymacs-load "ropemacs" "rope-")
-	    (setq ropemacs-enable-autoimport t)
-	    (ropemacs-mode)
 	    (load-file "~/.elisp/pylint.el"))
 	  (when (load "flymake" t)
 	    (defun flymake-pylint-init ()
@@ -141,6 +138,12 @@
 	  (lambda ()
 	    (flymake-mode 1)
 	    (setq indent-tabs-mode nil)))
+
+(defun rope ()
+   (interactive)
+   (pymacs-load "ropemacs" "rope-")
+   (setq ropemacs-enable-autoimport t)
+   (ropemacs-mode))
 
 ;; Activate html-mode for HTML files
 (setq auto-mode-alist (cons '("\\.html$" . html-mode) auto-mode-alist))
