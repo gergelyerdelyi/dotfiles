@@ -12,7 +12,7 @@ source ~/.git-completion.sh
 
 # Funky git prompt
 export GIT_PS1_SHOWDIRTYSTATE=1
-PS1='\h:\W$(__git_ps1 " (%s)")\$ '
+export PS1='\h:\[\033[1;34m\]\W\[\033[1;30m\]$(__git_ps1 " (%s)")\[\033[0m\]\$ '
 
 if [ -f ~/.bashrc.local ] ; then
     source ~/.bashrc.local
