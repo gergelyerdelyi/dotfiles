@@ -44,9 +44,6 @@
   (interactive)
   (other-window -1))
 
-;; Make Home/End keys work properly
-(pc-bindings-mode)
-
 (global-set-key '[M-left]  'backward-symbol)
 (global-set-key '[M-right] 'forward-symbol)
 
