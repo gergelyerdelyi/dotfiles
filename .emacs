@@ -20,6 +20,16 @@
 ;; UTF-8 is great(tm)
 (set-language-environment "utf-8")
 
+(when (>= emacs-major-version 24)
+  ;; Enable the solarized theme
+  (add-to-list 'custom-theme-load-path "~/.elisp/")
+  (load-theme 'solarized-light t))
+
+;; Change the flymake faces to underlines
+(custom-set-faces
+ '(flymake-errline ((t (:underline "orange"))))
+ '(flymake-warnline ((t (:underline "violet")))))
+
 (defun backward-symbol (&optional arg) 
   "Move backward until encountering the beginning of a symbol. 
    With argument, do this that many times." 
