@@ -53,7 +53,7 @@
 (setq make-backup-files nil)
 
 ;; Set a decently sized font
-(set-default-font "Inconsolata-18")
+(set-default-font "Inconsolata-20")
 
 ;; Enable column numbers
 (column-number-mode)
