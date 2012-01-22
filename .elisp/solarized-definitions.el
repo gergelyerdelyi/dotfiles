@@ -119,7 +119,7 @@ in order to expand or compress the tonal range displayed."
            (escape-glyph-face ((t (:foreground ,red))))
            (fringe ((t (:foreground ,base01 :background ,base02))))
            (linum ((t (:foreground ,base01 :background ,base02))))
-           (header-line ((t (:foreground ,base0 :background ,base2))))
+           (header-line ((t (:foreground ,base1 :background ,base02 :weight ,bold))))
            (highlight ((t (:background ,base02))))
            (hl-line ((t (:background ,base02))))
            (isearch ((t (:foreground ,yellow :inverse-video t))))
