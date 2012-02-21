@@ -75,6 +75,11 @@
 		(setq c-default-style "bsd")
 		(setq c-basic-offset 4))))
 
+;; Indent JS with spaces
+(setq js2-mode-hook
+  '(lambda () (progn
+    (set-variable 'indent-tabs-mode nil))))
+
 ;; Turn Command key into a Control. Emacs Pinky Problem be gone!
 (setq mac-command-modifier 'control)
 
