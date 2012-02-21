@@ -18,8 +18,8 @@ if [ -f ~/.bashrc.local ] ; then
     source ~/.bashrc.local
 fi
 
-# Make Midnight Command black & white
-alias mc='mc -b'
+# Make Midnight Command look nice
+alias mc='mc -c -S xoria256'
 
 # Filter for less to handle some binaries files (archives and such)
 export LESSOPEN='| /opt/local/bin/lesspipe.sh %s'
