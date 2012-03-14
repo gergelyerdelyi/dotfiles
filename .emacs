@@ -58,6 +58,9 @@
 ;; Enable column numbers
 (column-number-mode)
 
+;; Show matching parentheses
+(show-paren-mode)
+
 ;; y will suffice for yes
 (defalias 'yes-or-no-p 'y-or-n-p)
 
