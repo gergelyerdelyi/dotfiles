@@ -19,3 +19,5 @@
 	quotepath = false
 [user]
 	name = 
+[push]
+	default = upstream
