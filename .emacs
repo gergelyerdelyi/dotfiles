@@ -181,15 +181,8 @@
 (setenv "SHELL" shell-file-name)
 (setq explicit-sh-args '("-login" "-i"))
 
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
+(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
+			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;; Use Spotlight for locate
 (setq locate-command "mdfind")
