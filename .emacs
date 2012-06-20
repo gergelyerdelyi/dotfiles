@@ -25,10 +25,13 @@
   (add-to-list 'custom-theme-load-path "~/.elisp/")
   (load-theme 'solarized-light t))
 
-;; Change the flymake faces to underlines
+;; Tweak the standard theme to be a bit less intrusive
+;;  - Change the flymake faces to underlines
+;;  - Make the mode line lighter (same is used for anything's header)
 (custom-set-faces
  '(flymake-errline ((t (:underline "orange"))))
- '(flymake-warnline ((t (:underline "violet")))))
+ '(flymake-warnline ((t (:underline "violet"))))
+ '(header-line ((t (:inherit mode-line :background "#e9e2cb" :foreground "#465a61" :box nil :weight bold)))))
 
 (defun backward-symbol (&optional arg) 
   "Move backward until encountering the beginning of a symbol. 
