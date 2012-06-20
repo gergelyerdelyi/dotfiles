@@ -33,6 +33,9 @@
  '(flymake-warnline ((t (:underline "violet"))))
  '(header-line ((t (:inherit mode-line :background "#e9e2cb" :foreground "#465a61" :box nil :weight bold)))))
 
+;; Highlight trailing whitespace
+(setq-default show-trailing-whitespace t)
+
 (defun backward-symbol (&optional arg) 
   "Move backward until encountering the beginning of a symbol. 
    With argument, do this that many times." 
