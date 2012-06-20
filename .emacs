@@ -50,19 +50,6 @@
 ;; UTF-8 is great(tm)
 (set-language-environment "utf-8")
 
-(when (>= emacs-major-version 24)
-  ;; Enable the solarized theme
-  (add-to-list 'custom-theme-load-path "~/.elisp/")
-  (load-theme 'solarized-light t))
-
-;; Tweak the standard theme to be a bit less intrusive
-;;  - Change the flymake faces to underlines
-;;  - Make the mode line lighter (same is used for anything's header)
-(custom-set-faces
- '(flymake-errline ((t (:underline "orange"))))
- '(flymake-warnline ((t (:underline "violet"))))
- '(header-line ((t (:inherit mode-line :background "#e9e2cb" :foreground "#465a61" :box nil :weight bold)))))
-
 ;; Highlight trailing whitespace
 (setq-default show-trailing-whitespace t)
 
@@ -242,6 +229,27 @@
 				  (require 'slime)
 				  (setq slime-net-coding-system 'utf-8-unix)
 				  (slime-setup  '(slime-repl slime-asdf slime-fancy slime-banner)))))
+
+;; Tweak the standard theme to be a bit less intrusive
+;;  - Change the flymake faces to underlines
+;;  - Make the mode line lighter (same is used for anything's header)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(flymake-errline ((t (:underline "orange"))))
+ '(flymake-warnline ((t (:underline "violet"))))
+ '(header-line ((t (:inherit mode-line :background "#e9e2cb" :foreground "#465a61" :box nil :weight bold)))))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("d2622a2a2966905a5237b54f35996ca6fda2f79a9253d44793cfe31079e3c92b" default)))
+ '(custom-enabled-themes (quote (solarized-light)))
+)
 
 ;; Print the time info
 (message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
