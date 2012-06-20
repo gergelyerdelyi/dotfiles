@@ -172,11 +172,6 @@
 	    (define-key html-mode-map (kbd "<C-left>") 'sgml-skip-tag-backward)
 	    (define-key html-mode-map (kbd "<C-right>") 'sgml-skip-tag-forward)))
 
-;; Load the hacked diff view mode
-(add-hook 'diff-mode-hook
-	  (lambda ()
-	    (require 'diff-mode-)))
-
 ;; Setup Emacs to run bash as its primary shell.
 (setq shell-file-name "bash")
 (setq shell-command-switch "-c")
