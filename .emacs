@@ -5,6 +5,36 @@
 (require 'cl) ; a rare necessary use of REQUIRE
 (defvar *emacs-load-start* (current-time))
 
+;; Get the installed packages ready to roll right away
+(require 'package)
+(package-initialize)
+
+;; Set up package sources
+(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
+			 ("gnu" . "http://elpa.gnu.org/packages/")))
+
+(defvar survival-kit
+  '(clojure-mode css-mode js2-mode melpa solarized-theme)
+  "A list of packages needed for this setup to work")
+
+(defun survival-kit-is-complete-p ()
+  (loop for p in survival-kit
+        when (not (package-installed-p p)) do (return nil)
+        finally (return t)))
+
+(defun survival-kit-install ()
+  (interactive)
+  (unless (survival-kit-is-complete-p)
+    (message "The survival kit is not complete! Installing the missing bits ...")
+    (package-refresh-contents)
+    (dolist (p survival-kit)
+      (when (not (package-installed-p p))
+	(message "Installing %s" p)
+	(package-install p)))))
+
+;; Make sure all my favourite packages are installed
+(survival-kit-install)
+
 (add-to-list 'load-path (expand-file-name "~/.elisp"))
 
 ;; Ask the shell for enviroment variables
@@ -181,9 +211,6 @@
 (setq explicit-shell-file-name shell-file-name)
 (setenv "SHELL" shell-file-name)
 (setq explicit-sh-args '("-login" "-i"))
-
-(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
-			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;; Use Spotlight for locate
 (setq locate-command "mdfind")
