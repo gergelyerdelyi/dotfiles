@@ -53,11 +53,11 @@
 ;; Highlight trailing whitespace
 (setq-default show-trailing-whitespace t)
 
-(defun backward-symbol (&optional arg) 
-  "Move backward until encountering the beginning of a symbol. 
-   With argument, do this that many times." 
-  (interactive "p") 
-  (forward-symbol (- (or arg 1)))) 
+(defun backward-symbol (&optional arg)
+  "Move backward until encountering the beginning of a symbol.
+   With argument, do this that many times."
+  (interactive "p")
+  (forward-symbol (- (or arg 1))))
 
 ;; Crazy keyboard shortcut settings
 (global-set-key (kbd "C-{") 'other-window)
@@ -118,7 +118,7 @@
 ;; Integrate with Mac clipboard
 (setq x-select-enable-clipboard t)
 
-;; Custom Anything source to find all files in my work directory 
+;; Custom Anything source to find all files in my work directory
 (defun my-get-source-directory (path)
   (expand-file-name "~/work/"))
 
@@ -154,7 +154,7 @@
 (global-set-key [f1] 'my-anything)
 
 ;;; bind RET to py-newline-and-indent
-(add-hook 'python-mode-hook '(lambda () 
+(add-hook 'python-mode-hook '(lambda ()
      (define-key python-mode-map "\C-m" 'newline-and-indent)))
 
 ;; Load up Pymacs and configure pylint for flymake
