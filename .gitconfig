@@ -13,8 +13,18 @@
 	fa = fetch --all
 [branch]
 	autosetuprebase = always
+
+[mergetool.ediff]
+    cmd = /Applications/Emacs.app/Contents/MacOS/Emacs --eval \" \
+(progn \
+  (setq ediff-quit-hook 'kill-emacs) \
+  (if (file-readable-p \\\"$BASE\\\") \
+      (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \
+                                       \\\"$BASE\\\" nil \\\"$MERGED\\\") \
+      (edifg-merge-files \\\"$LOCAL\\\" \\\"$REMOTE\\\" nil \\\"$MERGED\\\")))\"
+
 [merge]
-	tool = xxdiff
+       tool = ediff
 [core]
 	quotepath = false
 [user]
