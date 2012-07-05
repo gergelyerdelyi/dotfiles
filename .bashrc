@@ -7,10 +7,7 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-# Funky git completion support
-source ~/.git-completion.sh
-
-# Funky git prompt
+# Funky git prompt, requires git-completion to be installed to bash_completion
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='\h:\[\033[1;34m\]\W\[\033[1;30m\]$(__git_ps1 " (%s)")\[\033[0m\]\$ '
 
