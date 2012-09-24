@@ -6,6 +6,7 @@
 [alias]
 	s = status
 	d = diff
+	ds = diff --staged
 	c = commit
 	b = branch
 	co = checkout
@@ -27,7 +28,7 @@
        tool = ediff
 [core]
 	quotepath = false
-[user]
-	name = 
 [push]
 	default = upstream
+[mergetool]
+	keepBackup = true
