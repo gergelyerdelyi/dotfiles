@@ -153,6 +153,10 @@
 
 (global-set-key [f1] 'my-anything)
 
+;; Enable auto-complete globally
+(require 'auto-complete)
+(global-auto-complete-mode t)
+
 ;;; bind RET to py-newline-and-indent
 (add-hook 'python-mode-hook '(lambda ()
      (define-key python-mode-map "\C-m" 'newline-and-indent)))
