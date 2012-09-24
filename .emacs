@@ -62,6 +62,7 @@
 ;; Crazy keyboard shortcut settings
 (global-set-key (kbd "C-{") 'other-window)
 (global-set-key (kbd "C-}") 'other-window-previous)
+(global-set-key (kbd "C-`") 'other-frame)
 
 (defun other-window-previous ()
   (interactive)
