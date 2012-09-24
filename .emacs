@@ -46,6 +46,7 @@
 
 (setenv-from-shell "PATH")
 (setenv-from-shell "PYTHONPATH")
+(setenv-from-shell "PYMACS_PYTHON")
 
 ;; UTF-8 is great(tm)
 (set-language-environment "utf-8")

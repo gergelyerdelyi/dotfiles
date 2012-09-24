@@ -20,3 +20,7 @@ fi
 
 # Make Midnight Command look nice
 alias mc='mc -c -S xoria256'
+
+# Hint Emacs on which Python to use for Pymacs
+export PYMACS_PYTHON=/usr/bin/python
+
