@@ -4,7 +4,7 @@
 	interactive = auto
 	status = auto
 [alias]
-	s = status
+	s = status -sb
 	d = diff
 	ds = diff --staged
 	c = commit
