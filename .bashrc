@@ -1,6 +1,5 @@
-export PATH=${PATH}
+export PATH=/usr/local/bin:${PATH}
 export EDITOR=vim
-
 export LANG=en_US.utf-8
 
 if [ -f ~/.bashrc.local ] ; then
