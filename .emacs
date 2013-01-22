@@ -14,7 +14,7 @@
 			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(clojure-mode css-mode js2-mode melpa solarized-theme)
+  '(auto-complete clojure-mode css-mode js2-mode melpa solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
