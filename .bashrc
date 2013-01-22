@@ -21,5 +21,11 @@ fi
 alias mc='mc -c -S xoria256'
 
 # Hint Emacs on which Python to use for Pymacs
-export PYMACS_PYTHON=/usr/bin/python
+export PYMACS_PYTHON=`which python`
 
+function init_python_env ()
+{
+    easy_install ropemacs
+    easy_install ropemode
+    easy_install pylint
+}
