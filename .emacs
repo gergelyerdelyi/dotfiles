@@ -14,7 +14,7 @@
 			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(auto-complete clojure-mode css-mode exec-path-from-shell js2-mode melpa solarized-theme)
+  '(auto-complete clojure-mode css-mode exec-path-from-shell flycheck js2-mode melpa solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -163,20 +163,7 @@
 (autoload 'pymacs-load "pymacs" "pymacs" t)
 (add-hook 'python-mode-hook
 	  (lambda ()
-	    (load-file "~/.elisp/pylint.el"))
-	  (when (load "flymake" t)
-	    (defun flymake-pylint-init ()
-	      (let* ((temp-file (flymake-init-create-temp-buffer-copy
-				 'flymake-create-temp-inplace))
-		     (local-file (file-relative-name
-				  temp-file
-				  (file-name-directory buffer-file-name))))
-		(list "~/.elisp/epylint.py" (list local-file))))
-	    (add-to-list 'flymake-allowed-file-name-masks
-			 '("\\.py\\'" flymake-pylint-init))))
-(add-hook 'python-mode-hook
-	  (lambda ()
-	    (flymake-mode 1)
+	    (flycheck-mode 1)
 	    (setq indent-tabs-mode nil)))
 
 (defun rope ()
