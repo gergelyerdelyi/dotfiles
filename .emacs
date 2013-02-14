@@ -14,7 +14,8 @@
 			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(auto-complete clojure-mode css-mode exec-path-from-shell flycheck js2-mode melpa solarized-theme)
+  '(auto-complete clojure-mode css-mode exec-path-from-shell flycheck helm helm-cmd-t
+    js2-mode melpa solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -116,40 +117,10 @@
 ;; Integrate with Mac clipboard
 (setq x-select-enable-clipboard t)
 
-;; Custom Anything source to find all files in my work directory
-(defun my-get-source-directory (path)
-  (expand-file-name "~/work/"))
-
-(defvar my-anything-c-source-file-search
-  '((name . "File Search")
-    (init . (lambda ()
-              (setq anything-default-directory
-                    default-directory)))
-    (candidates . (lambda ()
-                    (let ((args
-                           (format "'%s' \\( -path \\*/.svn \\) -prune -o -iregex '.*%s.*' -print"
-                                   (my-get-source-directory anything-default-directory)
-                                   anything-pattern)))
-		      (start-process-shell-command "file-search-process" nil
-						   "find" args))))
-    (type . file)
-    (requires-pattern . 4)
-    (delayed))
-  "Source for searching matching files recursively.")
-
-;; Activate anything .. or something
-(require 'anything-config)
-
-(defun my-anything ()
-   (interactive)
-   (anything-other-buffer
-    '(anything-c-source-buffers
-      anything-c-source-file-name-history
-      anything-c-source-files-in-current-dir
-      my-anything-c-source-file-search)
-    " *my-anything*"))
-
-(global-set-key [f1] 'my-anything)
+;; F1 should find me anything
+(setq helm-cmd-t-default-repo "~/work/")
+(require 'helm-C-x-b)
+(global-set-key [f1] 'helm-C-x-b)
 
 ;; Enable auto-complete globally
 (require 'auto-complete)
