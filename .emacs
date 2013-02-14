@@ -14,7 +14,7 @@
 			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(auto-complete clojure-mode css-mode js2-mode melpa solarized-theme)
+  '(auto-complete clojure-mode css-mode exec-path-from-shell js2-mode melpa solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -37,16 +37,12 @@
 
 (add-to-list 'load-path (expand-file-name "~/.elisp"))
 
-;; Ask the shell for enviroment variables
-(defun setenv-from-shell (varname)
-  (setenv varname (replace-regexp-in-string
-                   "[ \t\n]*$"
-                   ""
-                   (shell-command-to-string (concat "$SHELL --login -i -c 'echo $" varname "'")))))
-
-(setenv-from-shell "PATH")
-(setenv-from-shell "PYTHONPATH")
-(setenv-from-shell "PYMACS_PYTHON")
+;; Pull in some env vars for the Mac GUI version of Emacs
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "PATH")
+  (exec-path-from-shell-copy-env "PYTHONPATH")
+  (exec-path-from-shell-copy-env "PYMACS_PYTHON"))
 
 ;; UTF-8 is great(tm)
 (set-language-environment "utf-8")
