@@ -15,7 +15,7 @@
 
 (defvar survival-kit
   '(auto-complete clojure-mode css-mode exec-path-from-shell flycheck helm helm-cmd-t
-    js2-mode melpa solarized-theme)
+    js2-mode melpa powerline solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -210,6 +210,18 @@
  '(custom-safe-themes (quote ("d2622a2a2966905a5237b54f35996ca6fda2f79a9253d44793cfe31079e3c92b" default)))
  '(custom-enabled-themes (quote (solarized-light)))
 )
+
+;; Set better colours for powerline and enable it
+;; This needs to be done after the main theme is enabled
+(setq powerline-color1 "#657b83")
+(setq powerline-color2 "#839496")
+(set-face-attribute 'mode-line nil
+                    :foreground "#fdf6e3"
+                    :background "#859900"
+                    :box nil)
+(set-face-attribute 'mode-line-inactive nil
+                    :box nil)
+(powerline-default-theme)
 
 ;; Print the time info
 (message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
