@@ -3,7 +3,6 @@
 
 ;; Time how long loading this file takes
 (require 'cl) ; a rare necessary use of REQUIRE
-(defvar *emacs-load-start* (current-time))
 
 ;; Get the installed packages ready to roll right away
 (require 'package)
@@ -230,7 +229,3 @@
 (set-face-attribute 'mode-line-inactive nil
                     :box nil)
 (powerline-default-theme)
-
-;; Print the time info
-(message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
-				     (- (+ hi lo) (+ (first *emacs-load-start*) (second *emacs-load-start*)))))
