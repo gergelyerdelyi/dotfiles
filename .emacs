@@ -14,7 +14,7 @@
 
 (defvar survival-kit
   '(auto-complete clojure-mode css-mode exec-path-from-shell flycheck helm git-gutter
-    helm-cmd-t js2-mode melpa powerline solarized-theme)
+    helm-cmd-t js2-mode maxframe melpa powerline solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -229,3 +229,6 @@
 (set-face-attribute 'mode-line-inactive nil
                     :box nil)
 (powerline-default-theme)
+
+;; Bump up the main frame to take the full screen
+(maximize-frame)
