@@ -18,7 +18,7 @@ if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
 fi
 
 # Make Midnight Command look nice
-alias mc='mc -c -S xoria256'
+alias mc='mc --nosubshell --color --skin xoria256'
 
 # Hint Emacs on which Python to use for Pymacs
 export PYMACS_PYTHON=`which python`
