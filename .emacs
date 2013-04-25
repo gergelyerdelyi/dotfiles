@@ -197,6 +197,16 @@
 				  (setq slime-net-coding-system 'utf-8-unix)
 				  (slime-setup  '(slime-repl slime-asdf slime-fancy slime-banner)))))
 
+;; A wrapper over git grep to supply useful defaults w/o asking each time
+(defun my-git-grep (command-args)
+    (interactive
+     (progn
+       (vc-git-grep (grep-read-regexp)
+		    "*"
+		    (vc-git-root (file-name-directory (or load-file-name buffer-file-name)))))))
+
+(global-set-key (kbd "C-<f1>")  'my-git-grep)
+
 ;; Tweak the standard theme to be a bit less intrusive
 ;;  - Change the flymake faces to underlines
 ;;  - Make the mode line lighter (same is used for anything's header)
