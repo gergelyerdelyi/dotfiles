@@ -13,7 +13,7 @@
 			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(auto-complete clojure-mode css-mode exec-path-from-shell flycheck helm git-gutter
+  '(auto-complete clojure-mode css-mode elpy exec-path-from-shell flycheck helm git-gutter
     helm-cmd-t js2-mode maxframe melpa powerline solarized-theme)
   "A list of packages needed for this setup to work")
 
@@ -141,6 +141,8 @@
 (autoload 'pymacs-load "pymacs" "pymacs" t)
 (add-hook 'python-mode-hook
 	  (lambda ()
+	    (elpy-mode 1)
+	    (flymake-mode 0)
 	    (flycheck-mode 1)
 	    (setq indent-tabs-mode nil)))
 
