@@ -137,13 +137,17 @@
 (add-hook 'python-mode-hook '(lambda ()
      (define-key python-mode-map "\C-m" 'newline-and-indent)))
 
+;; My facvourite default minor-modes for elpy
+(setq elpy-default-minor-modes '(eldoc-mode
+				 flycheck-mode
+				 yas-minor-mode
+				 auto-complete-mode))
+
 ;; Load up Pymacs and configure pylint for flymake
 (autoload 'pymacs-load "pymacs" "pymacs" t)
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (elpy-mode 1)
-	    (flymake-mode 0)
-	    (flycheck-mode 1)
 	    (setq indent-tabs-mode nil)))
 
 (defun rope ()
