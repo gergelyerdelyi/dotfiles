@@ -32,4 +32,4 @@
 [push]
 	default = upstream
 [mergetool]
-	keepBackup = true
+	keepBackup = false
