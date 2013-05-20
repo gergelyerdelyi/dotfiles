@@ -68,8 +68,6 @@
 (global-set-key '[M-left]  'backward-symbol)
 (global-set-key '[M-right] 'forward-symbol)
 
-(global-set-key "\M- " 'hippie-expand)
-
 ;; Disable ~ backups, that's what git is for ;)
 (setq make-backup-files nil)
 
