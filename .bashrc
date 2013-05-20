@@ -1,5 +1,5 @@
 export PATH=/usr/local/bin:${PATH}
-export EDITOR=vim
+export EDITOR=/usr/local/bin/emacsclient
 export LANG=en_US.utf-8
 
 if [ -f ~/.bashrc.local ] ; then

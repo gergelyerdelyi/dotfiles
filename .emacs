@@ -211,6 +211,9 @@
 
 (global-set-key (kbd "C-<f1>")  'my-git-grep)
 
+;; emacsclient is nice, serve it well
+(server-start)
+
 ;; Tweak the standard theme to be a bit less intrusive
 ;;  - Change the flymake faces to underlines
 ;;  - Make the mode line lighter (same is used for anything's header)
