@@ -7,6 +7,7 @@
 	s = status -sb
 	d = diff
 	ds = diff --staged
+        daily = "!if [ 1 == $(date +%u) ]; then SINCE='last friday'; else SINCE=yesterday; fi; git log --author=erdelyi --since \"$SINCE\""
 	c = commit
 	b = branch
 	co = checkout
