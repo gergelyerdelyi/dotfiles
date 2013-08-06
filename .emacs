@@ -71,8 +71,22 @@
 ;; Disable ~ backups, that's what git is for ;)
 (setq make-backup-files nil)
 
-;; Set a decently sized font
-(set-default-font "Inconsolata-20")
+;; Set a decently sized font based on the screen resolution
+(defun set-frame-font (frame)
+  (interactive)
+  (if window-system
+      (progn
+        (if (> (x-display-pixel-width) 2000)
+            (set-frame-parameter frame 'font "Inconsolata 20")
+	  (set-frame-parameter frame 'font "Inconsolata 16")))))
+
+(defun reset-font ()
+  (interactive)
+  (set-frame-font nil))
+
+;; Fontify the current and any future frames
+(reset-font)
+(push 'set-frame-font after-make-frame-functions)
 
 ;; Enable column numbers
 (column-number-mode)
