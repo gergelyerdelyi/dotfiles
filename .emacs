@@ -226,7 +226,9 @@
 (global-set-key (kbd "C-<f1>")  'my-git-grep)
 
 ;; emacsclient is nice, serve it well
-(server-start)
+(require 'server)
+(if (not (eq t (server-running-p server-name)))
+    (server-start))
 
 ;; Tweak the standard theme to be a bit less intrusive
 ;;  - Change the flymake faces to underlines
