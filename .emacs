@@ -245,8 +245,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(flymake-errline ((t (:underline "orange"))))
- '(flymake-warnline ((t (:underline "violet"))))
  '(header-line ((t (:inherit mode-line :background "#e9e2cb" :foreground "#465a61" :box nil :weight bold)))))
 
 (custom-set-variables
