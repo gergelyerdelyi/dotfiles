@@ -232,6 +232,11 @@
 (if (not (eq t (server-running-p server-name)))
     (server-start))
 
+(defun sort-symbols (reverse beg end)
+  "Sort symbols in region alphabetically, in REVERSE if negative."
+  (interactive "*P\nr")
+  (sort-regexp-fields reverse "\\(\\sw\\|\\s_\\)+" "\\&" beg end))
+
 ;; Tweak the standard theme to be a bit less intrusive
 ;;  - Change the flymake faces to underlines
 ;;  - Make the mode line lighter (same is used for anything's header)
