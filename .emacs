@@ -40,6 +40,7 @@
 ;; Pull in some env vars for the Mac GUI version of Emacs
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "HELM_DEFAULT_REPO")
   (exec-path-from-shell-copy-env "PATH")
   (exec-path-from-shell-copy-env "PYTHONPATH")
   (exec-path-from-shell-copy-env "PYMACS_PYTHON"))
@@ -132,6 +133,7 @@
 (setq helm-cmd-t-default-repo "~/work/")
 (require 'helm-C-x-b)
 (global-set-key [f1] 'helm-C-x-b)
+(setq helm-cmd-t-default-repo (getenv "HELM_DEFAULT_REPO"))
 
 ;; Enable auto-complete globally
 (require 'auto-complete)
