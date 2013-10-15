@@ -42,8 +42,7 @@
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "HELM_DEFAULT_REPO")
   (exec-path-from-shell-copy-env "PATH")
-  (exec-path-from-shell-copy-env "PYTHONPATH")
-  (exec-path-from-shell-copy-env "PYMACS_PYTHON"))
+  (exec-path-from-shell-copy-env "PYTHONPATH"))
 
 ;; UTF-8 is great(tm)
 (set-language-environment "utf-8")
@@ -156,19 +155,10 @@
 				 flycheck-mode
 				 yas-minor-mode
 				 auto-complete-mode))
-
-;; Load up Pymacs and configure pylint for flymake
-(autoload 'pymacs-load "pymacs" "pymacs" t)
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (elpy-mode 1)
 	    (setq indent-tabs-mode nil)))
-
-(defun rope ()
-   (interactive)
-   (pymacs-load "ropemacs" "rope-")
-   (setq ropemacs-enable-autoimport t)
-   (ropemacs-mode))
 
 ;; Activate html-mode for HTML files
 (setq auto-mode-alist (cons '("\\.html$" . html-mode) auto-mode-alist))
