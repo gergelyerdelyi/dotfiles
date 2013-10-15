@@ -77,7 +77,7 @@
   (interactive)
   (if window-system
       (progn
-        (if (> (x-display-pixel-width) 2000)
+        (if (> (x-display-pixel-width) 1900)
             (set-frame-parameter frame 'font "Inconsolata 20")
 	  (set-frame-parameter frame 'font "Inconsolata 16")))))
 
