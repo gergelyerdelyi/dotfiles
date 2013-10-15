@@ -28,4 +28,5 @@ function init_python_env ()
     easy_install ropemacs
     easy_install ropemode
     easy_install pylint
+    easy_install elpy
 }
