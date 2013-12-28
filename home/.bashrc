@@ -30,3 +30,6 @@ function init_python_env ()
     easy_install pylint
     easy_install elpy
 }
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
