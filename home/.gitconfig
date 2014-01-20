@@ -13,6 +13,9 @@
 	co = checkout
 	ff = merge --ff-only
 	fa = fetch --all
+	fu = fetch upstream
+	up = !git fetch upstream && git rebase upstream/master
+
 [branch]
 	autosetuprebase = always
 
