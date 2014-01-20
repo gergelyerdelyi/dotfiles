@@ -14,7 +14,7 @@
 
 (defvar survival-kit
   '(auto-complete clojure-mode css-mode elpy exec-path-from-shell flycheck helm git-gutter
-    helm-cmd-t js2-mode maxframe melpa powerline solarized-theme)
+    helm-cmd-t js2-mode maxframe powerline solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
