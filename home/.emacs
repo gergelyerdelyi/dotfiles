@@ -158,6 +158,7 @@
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (elpy-mode 1)
+	    (flycheck-select-checker 'python-pylint)
 	    (setq indent-tabs-mode nil)))
 
 ;; Activate html-mode for HTML files
