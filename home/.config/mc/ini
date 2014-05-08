@@ -100,7 +100,7 @@ timeformat_recent=%b %e %H:%M
 timeformat_old=%b %e  %Y
 ftp_proxy_host=gate
 ftpfs_password=anonymous@
-display_codepage=ASCII
+display_codepage=UTF-8
 source_codepage=Other_8_bit
 autodetect_codeset=
 clipboard_store=
@@ -133,6 +133,24 @@ torben_fj_mode=false
 quick_search_mode=2
 
 simple_swap=false
+
+[FindFile]
+file_case_sens=true
+file_shell_pattern=true
+file_find_recurs=true
+file_skip_hidden=false
+file_all_charsets=false
+content_use=true
+content_case_sens=true
+content_regexp=false
+content_first_hit=false
+content_whole_words=false
+content_all_charsets=false
+ignore_dirs_enable=true
+ignore_dirs=
+
+[HotlistConfig]
+expanded_view_of_groups=0
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print
