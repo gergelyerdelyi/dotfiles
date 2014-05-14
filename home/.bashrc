@@ -23,6 +23,15 @@ alias mc='mc --nosubshell --color --skin xoria256'
 # Hint Emacs on which Python to use for Pymacs
 export PYMACS_PYTHON=`which python`
 
+export GOPATH=~/work/go
+
+if [ $(uname) == "Darwin" ] && hash go 2>/dev/null
+then
+    echo Darwin with Go
+    launchctl setenv GOPATH $(go env GOPATH)
+    launchctl setenv GOROOT $(go env GOROOT)
+fi
+
 function init_python_env ()
 {
     easy_install ropemacs
