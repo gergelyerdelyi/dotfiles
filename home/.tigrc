@@ -1,0 +1,4 @@
+set vertical-split = false
+
+source ~/.tigrc.colours
+
