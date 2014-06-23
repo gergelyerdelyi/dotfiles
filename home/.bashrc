@@ -5,17 +5,29 @@ if [ -f ~/.bashrc.local ] ; then
     source ~/.bashrc.local
 fi
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
+if hash brew 2>/dev/null
+then
+    if [ -f `brew --prefix`/etc/bash_completion ]; then
+        . `brew --prefix`/etc/bash_completion
+    fi
+
+    if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
+        . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+   fi
+else
+    if [ -f /etc/bash_completion.d/git ]
+    then
+        . /etc/bash_completion.d/git
+    fi
 fi
 
 # Funky git prompt
-if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
-    . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+if hash __git_ps1 2>/dev/null
+then
     export GIT_PS1_SHOWDIRTYSTATE=1
     export PS1='\h:\[\033[1;34m\]\W\[\033[1;30m\]$(__git_ps1 " (%s)")\[\033[0m\]\$ '
 fi
-
+ 
 # Make Midnight Command look nice
 alias mc='mc --nosubshell --color --skin xoria256'
 
