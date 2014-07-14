@@ -161,6 +161,7 @@
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (elpy-mode 1)
+	    (elpy-clean-modeline)
 	    (flycheck-select-checker 'python-pylint)
 	    (setq indent-tabs-mode nil)))
 
