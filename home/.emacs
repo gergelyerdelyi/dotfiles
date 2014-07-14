@@ -1,8 +1,7 @@
 ;; Magic .emacs file, hacked together by gergely.erdelyi@gmail.com
 ;; Bits and pieces of this file come from all over the 'Net.
 
-;; Time how long loading this file takes
-(require 'cl) ; a rare necessary use of REQUIRE
+(require 'cl)
 
 ;; Get the installed packages ready to roll right away
 (require 'package)
@@ -56,7 +55,7 @@
   (interactive "p")
   (forward-symbol (- (or arg 1))))
 
-;; Crazy keyboard shortcut settings
+;; Set Macish shortcuts for window and frame switching
 (global-set-key (kbd "C-{") 'other-window)
 (global-set-key (kbd "C-}") 'other-window-previous)
 (global-set-key (kbd "C-`") 'other-frame)
@@ -101,7 +100,7 @@
 ;; y will suffice for yes
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; Fix indentation, the way I like it
+;; Set up C/C++ indentation
 (setq c-mode-hook
     (function (lambda ()
                 (setq indent-tabs-mode nil)
@@ -115,7 +114,7 @@
 		(setq c-default-style "bsd")
 		(setq c-basic-offset 4))))
 
-;; Indent JS with spaces
+;; Indent JavaScript with spaces
 (setq js2-mode-hook
   '(lambda () (progn
     (set-variable 'indent-tabs-mode nil))))
@@ -150,11 +149,11 @@
 (global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
 (global-set-key (kbd "C-x r") 'git-gutter:revert-hunk)
 
-;;; bind RET to py-newline-and-indent
+;;; Bind RET to py-newline-and-indent
 (add-hook 'python-mode-hook '(lambda ()
      (define-key python-mode-map "\C-m" 'newline-and-indent)))
 
-;; My facvourite default minor-modes for elpy
+;; My favourite default minor-modes for elpy
 (setq elpy-default-minor-modes '(eldoc-mode
 				 flycheck-mode
 				 yas-minor-mode
