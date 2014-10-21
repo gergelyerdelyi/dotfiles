@@ -75,12 +75,10 @@
   (if window-system
       (cond
        ;; 27" Apple display
-       ((= (x-display-pixel-height) 1440)
+       ((> (x-display-mm-width) 700)
 	(set-frame-parameter frame 'font "Inconsolata 20"))
-       ;; This one catches both the 1280x800 and the 2560x1600 retina
-       ;; display reported as half resolution in "Best for display" mode.
-       ((= (x-display-pixel-height) 800)
-	(set-frame-parameter frame 'font "Inconsolata 14"))
+       ((< (x-display-mm-width) 350)
+	(set-frame-parameter frame 'font "Inconsolata 16"))
        (t (display-warning :warning "Can not set font size for this resolution automatically")))))
 
 (defun reset-font ()
