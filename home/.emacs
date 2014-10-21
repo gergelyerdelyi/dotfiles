@@ -286,3 +286,15 @@
 
 ;; Bump up the main frame to take the full screen
 (maximize-frame)
+
+;; Disable GUI dialogs for yes-no questions. Because
+;; a) I don't like them
+;; b) they jam up the whole Emacs process on Mac
+(defadvice y-or-n-p (around prevent-dialog-yorn activate)
+  "Prevent y-or-n-p from activating a dialog"
+  (let ((use-dialog-box nil))
+    ad-do-it))
+(defadvice yes-or-no-p (around prevent-dialog activate)
+  "Prevent yes-or-no-p from activating a dialog"
+  (let ((use-dialog-box nil))
+    ad-do-it))
