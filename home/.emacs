@@ -248,7 +248,8 @@
                 (shell-command-history    . 50)
                 tags-file-name
                 register-alist)))
-(desktop-save-mode 1)
+(if (not (getenv "NO_DESKTOP_SAVE_MODE"))
+    (desktop-save-mode 1))
 
 ;; Tweak the standard theme to be a bit less intrusive
 ;;  - Change the flymake faces to underlines

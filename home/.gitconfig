@@ -20,7 +20,7 @@
 	autosetuprebase = always
 
 [mergetool.ediff]
-    cmd = /Applications/Emacs.app/Contents/MacOS/Emacs --eval \" \
+    cmd = NO_DESKTOP_SAVE_MODE=1 /Applications/Emacs.app/Contents/MacOS/Emacs --eval \" \
 (progn \
   (setq ediff-quit-hook 'kill-emacs) \
   (if (file-readable-p \\\"$BASE\\\") \
