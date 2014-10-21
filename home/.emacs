@@ -126,6 +126,9 @@
 ;; Turn off scrollbars
 (scroll-bar-mode 0)
 
+;; Turn off the bell
+(setq ring-bell-function 'ignore)
+
 ;; Integrate with Mac clipboard
 (setq x-select-enable-clipboard t)
 
