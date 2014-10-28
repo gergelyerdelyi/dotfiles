@@ -199,12 +199,17 @@
    (insert (format-time-string "%a, %d %b %Y %T %z"))))
 
 ;; A wrapper over git grep to supply useful defaults w/o asking each time
-(defun my-git-grep (command-args)
-    (interactive
-     (progn
-       (vc-git-grep (grep-read-regexp)
-		    "*"
-		    (vc-git-root (file-name-directory (or load-file-name buffer-file-name)))))))
+(defun my-git-grep ()
+  "Search for the symbol at point with git grep, starting from the git root of the
+   current file. Asks for the search directory when called with C-u."
+  (interactive)
+  (let* ((current-buffer-directory (file-name-directory (or load-file-name buffer-file-name)))
+	 (search-root (if (equal current-prefix-arg nil)
+			  (vc-git-root current-buffer-directory)
+			(read-directory-name "Search in: " current-buffer-directory))))
+    (progn
+      (setq current-prefix-arg nil)
+      (vc-git-grep (grep-read-regexp) "*" search-root))))
 
 (global-set-key (kbd "C-<f1>")  'my-git-grep)
 
