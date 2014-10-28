@@ -198,24 +198,6 @@
   (interactive
    (insert (format-time-string "%a, %d %b %Y %T %z"))))
 
-;; Erlang mode set up for the MacPorts version
-(setq load-path (cons "/opt/local/lib/erlang/lib/tools-2.6.6.5/emacs/"
-		      load-path))
-(setq erlang-root-dir "/usr/local/lib/erlang")
-(setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
-(autoload 'erlang-mode "erlang-start" "Erlang mode" t)
-(add-to-list 'auto-mode-alist '("\\.erl\\'" . erlang-mode))
-
-;; Set up Slime for Clozure
-(add-to-list 'load-path "/opt/local/share/emacs/site-lisp/slime")
-(setq inferior-lisp-program "/opt/local/bin/ccl64 -K utf-8")
-;; (autoload 'slime "slime" "SLIME" t)
-(add-to-list 'auto-mode-alist '("\\.lisp\\'" .
-				(lambda ()
-				  (require 'slime)
-				  (setq slime-net-coding-system 'utf-8-unix)
-				  (slime-setup  '(slime-repl slime-asdf slime-fancy slime-banner)))))
-
 ;; A wrapper over git grep to supply useful defaults w/o asking each time
 (defun my-git-grep (command-args)
     (interactive
