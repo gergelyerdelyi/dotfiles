@@ -13,7 +13,7 @@
 
 (defvar survival-kit
   '(auto-complete clojure-mode css-mode elpy exec-path-from-shell flycheck helm git-gutter
-    helm-cmd-t js2-mode maxframe powerline solarized-theme)
+    helm-cmd-t js2-mode maxframe smart-mode-line solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -88,6 +88,9 @@
 ;; Fontify the current and any future frames
 (reset-font)
 (push 'set-frame-font after-make-frame-functions)
+
+;; Enable smart-mode-line
+(sml/setup)
 
 ;; Enable column numbers
 (column-number-mode)
@@ -271,18 +274,6 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (solarized-light)))
  '(custom-safe-themes (quote ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "d2622a2a2966905a5237b54f35996ca6fda2f79a9253d44793cfe31079e3c92b" default))))
-
-;; Set better colours for powerline and enable it
-;; This needs to be done after the main theme is enabled
-(setq powerline-color1 "#657b83")
-(setq powerline-color2 "#839496")
-(set-face-attribute 'mode-line nil
-                    :foreground "#fdf6e3"
-                    :background "#859900"
-                    :box nil)
-(set-face-attribute 'mode-line-inactive nil
-                    :box nil)
-(powerline-default-theme)
 
 ;; Bump up the main frame to take the full screen
 (maximize-frame)
