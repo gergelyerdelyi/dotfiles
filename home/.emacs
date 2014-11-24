@@ -76,9 +76,9 @@
       (cond
        ;; 27" Apple display
        ((> (x-display-mm-width) 700)
-	(set-frame-parameter frame 'font "Inconsolata 20"))
-       ((< (x-display-mm-width) 350)
-	(set-frame-parameter frame 'font "Inconsolata 16"))
+        (set-frame-parameter frame 'font "Inconsolata 20"))
+       ((< (x-display-mm-width) 360)
+        (set-frame-parameter frame 'font "Inconsolata 16"))
        (t (display-warning :warning "Can not set font size for this resolution automatically")))))
 
 (defun reset-font ()
