@@ -92,14 +92,18 @@
 ;; Enable smart-mode-line
 (sml/setup)
 
+;; Bump up the main frame to take the full screen
+(maximize-frame)
+
 ;; Enable column numbers
 (column-number-mode)
 
 ;; Show matching parentheses
 (show-paren-mode)
 
-;; y will suffice for yes
-(defalias 'yes-or-no-p 'y-or-n-p)
+;; Use 4 spaces for indentation by default
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 ;; Set up C/C++ indentation
 (setq c-mode-hook
@@ -243,27 +247,6 @@
 (if (not (getenv "NO_DESKTOP_SAVE_MODE"))
     (desktop-save-mode 1))
 
-;; Tweak the standard theme to be a bit less intrusive
-;;  - Change the flymake faces to underlines
-;;  - Make the mode line lighter (same is used for anything's header)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(header-line ((t (:inherit mode-line :background "#e9e2cb" :foreground "#465a61" :box nil :weight bold)))))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (solarized-light)))
- '(custom-safe-themes (quote ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "d2622a2a2966905a5237b54f35996ca6fda2f79a9253d44793cfe31079e3c92b" default))))
-
-;; Bump up the main frame to take the full screen
-(maximize-frame)
-
 ;; Disable GUI dialogs for yes-no questions. Because
 ;; a) I don't like them
 ;; b) they jam up the whole Emacs process on Mac
@@ -275,3 +258,26 @@
   "Prevent yes-or-no-p from activating a dialog"
   (let ((use-dialog-box nil))
     ad-do-it))
+;; y will suffice for yes
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (solarized-light)))
+ '(custom-safe-themes
+   (quote
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
+ '(elpy-modules
+   (quote
+    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults))))
+
