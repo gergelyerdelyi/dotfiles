@@ -89,9 +89,6 @@
 (reset-font)
 (push 'set-frame-font after-make-frame-functions)
 
-;; Enable smart-mode-line
-(sml/setup)
-
 ;; Bump up the main frame to take the full screen
 (maximize-frame)
 
@@ -281,3 +278,5 @@
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults))))
 
+;; Enable smart-mode-line
+(sml/setup)
