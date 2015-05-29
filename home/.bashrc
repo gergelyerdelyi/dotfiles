@@ -32,7 +32,7 @@ then
     export GIT_PS1_SHOWDIRTYSTATE=1
     export PS1='\h:\[\033[1;34m\]\W\[\033[1;30m\]$(__git_ps1 " (%s)")\[\033[0m\]\$ '
 fi
- 
+
 # Make Midnight Command look nice
 alias mc='mc --nosubshell --color --skin xoria256'
 
@@ -40,6 +40,7 @@ alias mc='mc --nosubshell --color --skin xoria256'
 export PYMACS_PYTHON=`which python`
 
 export GOPATH=~/work/go
+export PATH=~/work/go/bin:$PATH
 
 if [ $(uname) == "Darwin" ] && hash go 2>/dev/null
 then
