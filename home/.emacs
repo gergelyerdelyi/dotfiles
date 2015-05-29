@@ -70,16 +70,20 @@
 ;; Disable ~ backups, that's what git is for ;)
 (setq make-backup-files nil)
 
-;; Set a decently sized font based on the screen resolution
+;; Set a decently sized font based on the screen size
 (defun set-frame-font (frame)
   (if window-system
       (cond
-       ;; 27" Apple display
+       ;; 27" Apple Cinema Display on Mac OS X
        ((> (x-display-mm-width) 700)
         (set-frame-parameter frame 'font "Inconsolata 20"))
-       ((< (x-display-mm-width) 360)
+       ;; 27" Apple Cinema Display on Linux
+       ((= (x-display-mm-width) 677)
+        (set-frame-parameter frame 'font "Inconsolata 14"))
+       ;; 13" Macbook Pro display on Mac OS X
+       ((= (x-display-mm-width) 353)
         (set-frame-parameter frame 'font "Inconsolata 16"))
-       (t (display-warning :warning "Can not set font size for this resolution automatically")))))
+       (t (display-warning :warning "Can not set font size for this screen size automatically")))))
 
 (defun reset-font ()
   (interactive)
