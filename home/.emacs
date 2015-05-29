@@ -9,11 +9,11 @@
 
 ;; Set up package sources
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
-			 ("gnu" . "http://elpa.gnu.org/packages/")))
+                         ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
   '(auto-complete clojure-mode css-mode elpy exec-path-from-shell flycheck helm git-gutter
-    helm-cmd-t js2-mode maxframe smart-mode-line solarized-theme)
+                  helm-cmd-t js2-mode maxframe smart-mode-line solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -28,8 +28,8 @@
     (package-refresh-contents)
     (dolist (p survival-kit)
       (when (not (package-installed-p p))
-	(message "Installing %s" p)
-	(package-install p)))))
+        (message "Installing %s" p)
+        (package-install p)))))
 
 ;; Make sure all my favourite packages are installed
 (survival-kit-install)
