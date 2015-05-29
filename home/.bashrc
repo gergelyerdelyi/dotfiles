@@ -15,10 +15,15 @@ then
         . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
    fi
 else
-    if [ -f /etc/bash_completion.d/git ]
-    then
-        . /etc/bash_completion.d/git
-    fi
+    for completion in /etc/bash_completion.d/git \
+                      /usr/share/bash-completion/completions/git  \
+                      /usr/share/git-core/contrib/completion/git-prompt.sh
+    do
+        if [ -f "$completion" ]
+        then
+            . "$completion"
+        fi
+    done
 fi
 
 # Funky git prompt
