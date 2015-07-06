@@ -13,7 +13,7 @@
 
 (defvar survival-kit
   '(ag auto-complete clojure-mode css-mode elpy exec-path-from-shell flycheck helm
-    git-gutter helm-cmd-t js2-mode maxframe smart-mode-line solarized-theme)
+    git-gutter helm-cmd-t js2-mode maxframe powerline solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -103,6 +103,11 @@
 
 ;; Show matching parentheses
 (show-paren-mode)
+
+;; Enable Powerline
+(powerline-default-theme)
+;; ...and make it properly visible
+(setq solarized-high-contrast-mode-line t)
 
 ;; Use 4 spaces for indentation by default
 (setq-default indent-tabs-mode nil)
@@ -288,6 +293,3 @@
  '(elpy-modules
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults))))
-
-;; Enable smart-mode-line
-(sml/setup)
