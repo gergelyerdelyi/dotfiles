@@ -12,8 +12,8 @@
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(auto-complete clojure-mode css-mode elpy exec-path-from-shell flycheck helm git-gutter
-                  helm-cmd-t js2-mode maxframe smart-mode-line solarized-theme)
+  '(ag auto-complete clojure-mode css-mode elpy exec-path-from-shell flycheck helm
+    git-gutter helm-cmd-t js2-mode maxframe smart-mode-line solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -216,6 +216,11 @@
       (vc-git-grep (grep-read-regexp) "*" search-root))))
 
 (global-set-key (kbd "C-<f1>")  'my-git-grep)
+
+;; The Silver Searcher finds things fast
+(global-set-key (kbd "C-<f5>")  'ag-project)
+(setq ag-highlight-search t)
+(setq ag-reuse-buffers 't)
 
 ;; emacsclient is nice, serve it well
 (require 'server)
