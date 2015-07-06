@@ -56,7 +56,9 @@
   (forward-symbol (- (or arg 1))))
 
 ;; Set Macish shortcuts for window and frame switching
+(global-set-key (kbd "C-<prior>") 'other-window)
 (global-set-key (kbd "C-{") 'other-window)
+(global-set-key (kbd "C-<next>") 'other-window-previous)
 (global-set-key (kbd "C-}") 'other-window-previous)
 (global-set-key (kbd "C-`") 'other-frame)
 
