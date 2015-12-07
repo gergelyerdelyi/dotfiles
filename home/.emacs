@@ -151,6 +151,7 @@
 (setq helm-cmd-t-default-repo "~/work/")
 (require 'helm-C-x-b)
 (global-set-key [f5] 'helm-C-x-b)
+(global-set-key [f6] 'helm-C-x-b)
 (setq helm-cmd-t-default-repo (getenv "HELM_DEFAULT_REPO"))
 
 ;; Enable auto-complete globally
