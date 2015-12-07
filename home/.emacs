@@ -12,7 +12,7 @@
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(ag clojure-mode company-jedi css-mode elpy exec-path-from-shell flycheck helm
+  '(ag company-jedi css-mode elpy exec-path-from-shell flycheck helm
     git-gutter helm-cmd-t js2-mode maxframe powerline solarized-theme)
   "A list of packages needed for this setup to work")
 
