@@ -16,7 +16,7 @@
 
 (defvar survival-kit
   '(company-jedi css-mode exec-path-from-shell flycheck
-    git-gutter js2-mode solarized-theme)
+    js2-mode solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -171,13 +171,14 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
-(require 'git-gutter)
-(global-git-gutter-mode t)
-(global-set-key (kbd "C-x C-g") 'git-gutter:toggle)
-(global-set-key (kbd "C-x v =") 'git-gutter:popup-diff)
-(global-set-key (kbd "C-x p") 'git-gutter:previous-hunk)
-(global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
-(global-set-key (kbd "C-x r") 'git-gutter:revert-hunk)
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode t)
+  (global-set-key (kbd "C-x C-g") 'git-gutter:toggle)
+  (global-set-key (kbd "C-x v =") 'git-gutter:popup-diff)
+  (global-set-key (kbd "C-x p") 'git-gutter:previous-hunk)
+  (global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
+  (global-set-key (kbd "C-x r") 'git-gutter:revert-hunk))
 
 ;;; Bind RET to py-newline-and-indent
 (add-hook 'python-mode-hook '(lambda ()
