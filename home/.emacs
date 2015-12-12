@@ -117,8 +117,6 @@
 ;; Integrate with Mac clipboard
 (setq x-select-enable-clipboard t)
 
-(use-package company-jedi)
-
 (use-package css-mode)
 
 (use-package flycheck)
@@ -143,6 +141,10 @@
 (use-package maxframe
   :config
   (maximize-frame))
+
+(use-package elpy
+  :config
+  (elpy-enable))
 
 (use-package js2-mode
   :config
@@ -174,14 +176,8 @@
 (add-hook 'python-mode-hook '(lambda ()
      (define-key python-mode-map "\C-m" 'newline-and-indent)))
 
-;; My favourite default minor-modes for elpy
-(setq elpy-default-minor-modes '(eldoc-mode
-				 flycheck-mode
-				 yas-minor-mode
-				 auto-complete-mode))
 (add-hook 'python-mode-hook
 	  (lambda ()
-	    (elpy-mode 1)
 	    (flycheck-select-checker 'python-pylint)
 	    (setq indent-tabs-mode nil)))
 
@@ -274,7 +270,4 @@
  '(custom-enabled-themes (quote (solarized-light)))
  '(custom-safe-themes
    (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
- '(elpy-modules
-   (quote
-    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults))))
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default))))
