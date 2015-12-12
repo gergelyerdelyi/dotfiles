@@ -15,8 +15,7 @@
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(company-jedi css-mode exec-path-from-shell flycheck
-    solarized-theme)
+  '(company-jedi css-mode exec-path-from-shell flycheck)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -167,6 +166,8 @@
   (setq js2-mode-hook
         '(lambda () (progn
                       (set-variable 'indent-tabs-mode nil)))))
+
+(use-package solarized-theme)
 
 ;; Enable auto-complete globally
 (require 'auto-complete)
