@@ -15,7 +15,7 @@
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(company-jedi css-mode exec-path-from-shell flycheck)
+  '(company-jedi css-mode flycheck)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -38,11 +38,12 @@
 
 (add-to-list 'load-path (expand-file-name "~/.elisp"))
 
-;; Pull in some env vars for the Mac GUI version of Emacs
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "PATH")
-  (exec-path-from-shell-copy-env "PYTHONPATH"))
+(use-package exec-path-from-shell
+  :config
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize)
+    (exec-path-from-shell-copy-env "PATH")
+    (exec-path-from-shell-copy-env "PYTHONPATH")))
 
 ;; UTF-8 is great(tm)
 (set-language-environment "utf-8")
