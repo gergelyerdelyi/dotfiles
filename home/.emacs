@@ -84,11 +84,6 @@
 ;; Show matching parentheses
 (show-paren-mode)
 
-(use-package powerline
-  :config
-  (powerline-default-theme)
-  (setq solarized-high-contrast-mode-line t))
-
 ;; Use 4 spaces for indentation by default
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -156,6 +151,11 @@
                       (set-variable 'indent-tabs-mode nil)))))
 
 (use-package solarized-theme)
+
+(use-package powerline
+  :config
+  (powerline-default-theme)
+  (setq solarized-high-contrast-mode-line t))
 
 ;; Enable auto-complete globally
 (require 'auto-complete)
