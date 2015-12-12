@@ -17,27 +17,6 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(defvar survival-kit
-  "A list of packages needed for this setup to work")
-
-(defun survival-kit-is-complete-p ()
-  (loop for p in survival-kit
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
-
-(defun survival-kit-install ()
-  (interactive)
-  (unless (survival-kit-is-complete-p)
-    (message "The survival kit is not complete! Installing the missing bits ...")
-    (package-refresh-contents)
-    (dolist (p survival-kit)
-      (when (not (package-installed-p p))
-        (message "Installing %s" p)
-        (package-install p)))))
-
-;; Make sure all my favourite packages are installed
-(survival-kit-install)
-
 (add-to-list 'load-path (expand-file-name "~/.elisp"))
 
 (use-package exec-path-from-shell
