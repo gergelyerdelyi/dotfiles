@@ -172,15 +172,6 @@
   (global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
   (global-set-key (kbd "C-x r") 'git-gutter:revert-hunk))
 
-;;; Bind RET to py-newline-and-indent
-(add-hook 'python-mode-hook '(lambda ()
-     (define-key python-mode-map "\C-m" 'newline-and-indent)))
-
-(add-hook 'python-mode-hook
-	  (lambda ()
-	    (flycheck-select-checker 'python-pylint)
-	    (setq indent-tabs-mode nil)))
-
 ;; Activate html-mode for HTML files
 (setq auto-mode-alist (cons '("\\.html$" . html-mode) auto-mode-alist))
 
