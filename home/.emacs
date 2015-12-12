@@ -7,13 +7,16 @@
 (require 'package)
 (package-initialize)
 
+(require 'use-package)
+(setq use-package-always-ensure t)
+
 ;; Set up package sources
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(ag company-jedi css-mode elpy exec-path-from-shell flycheck helm
-    git-gutter helm-cmd-t js2-mode maxframe powerline solarized-theme)
+  '(ag company-jedi css-mode exec-path-from-shell flycheck helm
+    git-gutter helm-cmd-t js2-mode maxframe solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -104,10 +107,10 @@
 ;; Show matching parentheses
 (show-paren-mode)
 
-;; Enable Powerline
-(powerline-default-theme)
-;; ...and make it properly visible
-(setq solarized-high-contrast-mode-line t)
+(use-package powerline
+  :config
+  (powerline-default-theme)
+  (setq solarized-high-contrast-mode-line t))
 
 ;; Use 4 spaces for indentation by default
 (setq-default indent-tabs-mode nil)
