@@ -172,15 +172,6 @@
   (global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
   (global-set-key (kbd "C-x r") 'git-gutter:revert-hunk))
 
-;; Activate html-mode for HTML files
-(setq auto-mode-alist (cons '("\\.html$" . html-mode) auto-mode-alist))
-
-;; Make Cmd-Left/Right jump between tags
-(add-hook 'html-mode-hook
-	  (lambda ()
-	    (define-key html-mode-map (kbd "<C-left>") 'sgml-skip-tag-backward)
-	    (define-key html-mode-map (kbd "<C-right>") 'sgml-skip-tag-forward)))
-
 ;; Setup Emacs to run bash as its primary shell.
 (setq shell-file-name "bash")
 (setq shell-command-switch "-c")
