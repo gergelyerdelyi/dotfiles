@@ -15,7 +15,7 @@
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(ag company-jedi css-mode exec-path-from-shell flycheck
+  '(company-jedi css-mode exec-path-from-shell flycheck
     git-gutter js2-mode maxframe solarized-theme)
   "A list of packages needed for this setup to work")
 
@@ -160,6 +160,12 @@
   (setq helm-cmd-t-default-repo (getenv "HELM_DEFAULT_REPO"))
   (global-set-key [f6] 'helm-C-x-b))
 
+(use-package ag
+  :config
+  (global-set-key (kbd "C-<f6>") 'ag-project)
+  (setq ag-highlight-search t)
+  (setq ag-reuse-buffers 't))
+
 ;; Enable auto-complete globally
 (require 'auto-complete)
 (global-auto-complete-mode t)
@@ -230,11 +236,6 @@
       (vc-git-grep (grep-read-regexp) "*" search-root))))
 
 (global-set-key (kbd "C-<f1>")  'my-git-grep)
-
-;; The Silver Searcher finds things fast
-(global-set-key (kbd "C-<f5>")  'ag-project)
-(setq ag-highlight-search t)
-(setq ag-reuse-buffers 't)
 
 ;; emacsclient is nice, serve it well
 (require 'server)
