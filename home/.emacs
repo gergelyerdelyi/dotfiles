@@ -7,12 +7,15 @@
 (require 'package)
 (package-initialize)
 
-(require 'use-package)
-(setq use-package-always-ensure t)
-
 ;; Set up package sources
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
 
 (defvar survival-kit
   "A list of packages needed for this setup to work")
