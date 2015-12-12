@@ -15,7 +15,6 @@
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(company-jedi css-mode flycheck)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -140,6 +139,12 @@
 
 ;; Integrate with Mac clipboard
 (setq x-select-enable-clipboard t)
+
+(use-package company-jedi)
+
+(use-package css-mode)
+
+(use-package flycheck)
 
 (use-package helm
   :init
