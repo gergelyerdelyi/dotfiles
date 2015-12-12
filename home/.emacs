@@ -16,7 +16,7 @@
 
 (defvar survival-kit
   '(company-jedi css-mode exec-path-from-shell flycheck
-    git-gutter js2-mode maxframe solarized-theme)
+    git-gutter js2-mode solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -97,9 +97,6 @@
 (reset-font)
 (push 'set-frame-font after-make-frame-functions)
 
-;; Bump up the main frame to take the full screen
-(maximize-frame)
-
 ;; Enable column numbers
 (column-number-mode)
 
@@ -165,6 +162,10 @@
   (global-set-key (kbd "C-<f6>") 'ag-project)
   (setq ag-highlight-search t)
   (setq ag-reuse-buffers 't))
+
+(use-package maxframe
+  :config
+  (maximize-frame))
 
 ;; Enable auto-complete globally
 (require 'auto-complete)
