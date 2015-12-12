@@ -15,8 +15,8 @@
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defvar survival-kit
-  '(ag company-jedi css-mode exec-path-from-shell flycheck helm
-    git-gutter helm-cmd-t js2-mode maxframe solarized-theme)
+  '(ag company-jedi css-mode exec-path-from-shell flycheck
+    git-gutter js2-mode maxframe solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -42,7 +42,6 @@
 ;; Pull in some env vars for the Mac GUI version of Emacs
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "HELM_DEFAULT_REPO")
   (exec-path-from-shell-copy-env "PATH")
   (exec-path-from-shell-copy-env "PYTHONPATH"))
 
@@ -150,12 +149,16 @@
 ;; Integrate with Mac clipboard
 (setq x-select-enable-clipboard t)
 
-;; F1 should find me anything
-(setq helm-cmd-t-default-repo "~/work/")
-(require 'helm-C-x-b)
-(global-set-key [f5] 'helm-C-x-b)
-(global-set-key [f6] 'helm-C-x-b)
-(setq helm-cmd-t-default-repo (getenv "HELM_DEFAULT_REPO"))
+(use-package helm
+  :init
+  (require 'helm-config))
+
+(use-package helm-cmd-t
+  :config
+  (require 'helm-C-x-b)
+  (exec-path-from-shell-copy-env "HELM_DEFAULT_REPO")
+  (setq helm-cmd-t-default-repo (getenv "HELM_DEFAULT_REPO"))
+  (global-set-key [f6] 'helm-C-x-b))
 
 ;; Enable auto-complete globally
 (require 'auto-complete)
