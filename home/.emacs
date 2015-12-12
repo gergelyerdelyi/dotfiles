@@ -121,6 +121,10 @@
 
 (use-package flycheck)
 
+(use-package auto-complete
+  :config
+  (global-auto-complete-mode t))
+
 (use-package helm
   :init
   (require 'helm-config))
@@ -158,10 +162,6 @@
   :config
   (powerline-default-theme)
   (setq solarized-high-contrast-mode-line t))
-
-;; Enable auto-complete globally
-(require 'auto-complete)
-(global-auto-complete-mode t)
 
 (use-package git-gutter
   :config
