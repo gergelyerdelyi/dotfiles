@@ -16,7 +16,7 @@
 
 (defvar survival-kit
   '(company-jedi css-mode exec-path-from-shell flycheck
-    js2-mode solarized-theme)
+    solarized-theme)
   "A list of packages needed for this setup to work")
 
 (defun survival-kit-is-complete-p ()
@@ -126,11 +126,6 @@
 		(setq c-default-style "bsd")
 		(setq c-basic-offset 4))))
 
-;; Indent JavaScript with spaces
-(setq js2-mode-hook
-  '(lambda () (progn
-    (set-variable 'indent-tabs-mode nil))))
-
 ;; Turn Command key into a Control. Emacs Pinky Problem be gone!
 (setq mac-command-modifier 'control)
 
@@ -166,6 +161,12 @@
 (use-package maxframe
   :config
   (maximize-frame))
+
+(use-package js2-mode
+  :config
+  (setq js2-mode-hook
+        '(lambda () (progn
+                      (set-variable 'indent-tabs-mode nil)))))
 
 ;; Enable auto-complete globally
 (require 'auto-complete)
