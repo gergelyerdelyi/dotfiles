@@ -117,8 +117,6 @@
 ;; Integrate with Mac clipboard
 (setq x-select-enable-clipboard t)
 
-(use-package css-mode)
-
 (use-package flycheck)
 
 (use-package auto-complete
@@ -145,6 +143,8 @@
 (use-package maxframe
   :config
   (maximize-frame))
+
+(use-package css-mode)
 
 (use-package elpy
   :config
