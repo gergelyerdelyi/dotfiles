@@ -14,7 +14,7 @@
 	ff = merge --ff-only
 	fa = fetch --all
 	fu = fetch upstream
-	up = !git fetch upstream && git rebase upstream/master
+	up = !git fetch upstream && git rebase --autostash upstream/master
 
 [branch]
 	autosetuprebase = always
