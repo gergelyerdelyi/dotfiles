@@ -61,13 +61,16 @@
       (cond
        ;; 27" Apple Cinema Display on Mac OS X
        ((> (x-display-mm-width) 700)
-        (set-frame-parameter frame 'font "Inconsolata 20"))
+        (set-frame-parameter frame 'font "Hack 20"))
        ;; 27" Apple Cinema Display on Linux
        ((= (x-display-mm-width) 677)
-        (set-frame-parameter frame 'font "Inconsolata 14"))
+        (set-frame-parameter frame 'font "Hack 14"))
+       ;; 24" Dell on Linux
+       ((= (x-display-mm-width) 508)
+        (set-frame-parameter frame 'font "Hack 12"))
        ;; 13" Macbook Pro display on Mac OS X
        ((= (x-display-mm-width) 353)
-        (set-frame-parameter frame 'font "Inconsolata 16"))
+        (set-frame-parameter frame 'font "Hack 16"))
        (t (display-warning :warning "Can not set font size for this screen size automatically")))))
 
 (defun reset-font ()
