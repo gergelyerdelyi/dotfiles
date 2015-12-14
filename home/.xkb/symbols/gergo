@@ -14,7 +14,7 @@ xkb_symbols "win_keys_to_decent_control_row" {
 };
 
 partial modifier_keys
-xkb_symbols "caps_to_f5" {
-    key <CAPS> { [ F5 ] };
+xkb_symbols "caps_to_f6" {
+    key <CAPS> { [ F6 ] };
 };
 
