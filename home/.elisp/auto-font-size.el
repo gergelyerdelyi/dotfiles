@@ -26,14 +26,14 @@
 (defun font-for-linux-screen-size ()
   (cond
    ((>= (x-display-mm-width) 600) "Hack 14")
-   ((< (x-display-mm-width) 400) "Hack 12")))
+   ((< (x-display-mm-width) 600) "Hack 12")))
 
 (defun font-for-screen ()
   (cond
    ((eq system-type 'darwin)
     (font-for-mac-screen-size))
    ((eq system-type 'gnu/linux)
-    (font-for-mac-screen-size))))
+    (font-for-linux-screen-size))))
 
 (defun set-frame-font (frame)
   (if window-system
