@@ -55,32 +55,6 @@
 ;; Disable ~ backups, that's what git is for ;)
 (setq make-backup-files nil)
 
-;; Set a decently sized font based on the screen size
-(defun set-frame-font (frame)
-  (if window-system
-      (cond
-       ;; 27" Apple Cinema Display on Mac OS X
-       ((> (x-display-mm-width) 700)
-        (set-frame-parameter frame 'font "Hack 20"))
-       ;; 27" Apple Cinema Display on Linux
-       ((= (x-display-mm-width) 677)
-        (set-frame-parameter frame 'font "Hack 14"))
-       ;; 24" Dell on Linux
-       ((= (x-display-mm-width) 508)
-        (set-frame-parameter frame 'font "Hack 12"))
-       ;; 13" Macbook Pro display on Mac OS X
-       ((= (x-display-mm-width) 353)
-        (set-frame-parameter frame 'font "Hack 16"))
-       (t (display-warning :warning "Can not set font size for this screen size automatically")))))
-
-(defun reset-font ()
-  (interactive)
-  (set-frame-font nil))
-
-;; Fontify the current and any future frames
-(reset-font)
-(push 'set-frame-font after-make-frame-functions)
-
 ;; Enable column numbers
 (column-number-mode)
 
@@ -158,6 +132,13 @@
   (setq js2-mode-hook
         '(lambda () (progn
                       (set-variable 'indent-tabs-mode nil)))))
+
+(use-package auto-font-size
+  :ensure f
+  :config
+  ;; Set the correct font on all frames
+  (push 'set-frame-font after-make-frame-functions)
+  (add-hook 'window-size-change-functions 'set-frame-font))
 
 (use-package solarized-theme)
 
