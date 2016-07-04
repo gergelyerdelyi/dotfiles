@@ -29,10 +29,12 @@
       (ediff-merge-files \\\"$LOCAL\\\" \\\"$REMOTE\\\" nil \\\"$MERGED\\\")))\"
 
 [merge]
-       tool = ediff
+	tool = p4merge
 [core]
 	quotepath = false
 [push]
 	default = current
 [mergetool]
 	keepBackup = false
+	keepTemporaries = false
+	prompt = false

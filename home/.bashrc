@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
+export PATH=~/.bin:/usr/local/bin:/usr/local/sbin:${PATH}
 export LANG=en_US.utf-8
 
 if [ -f ~/.bashrc.local ] ; then
