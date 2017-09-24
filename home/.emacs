@@ -82,6 +82,9 @@
 ;; Turn Command key into a Control. Emacs Pinky Problem be gone!
 (setq mac-command-modifier 'control)
 
+;; Turn on standard copy & paste shortcuts (Cmd-C/V/X)
+(cua-mode 1)
+
 ;; Turn off the toolbar
 (tool-bar-mode 0)
 
