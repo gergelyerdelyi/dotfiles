@@ -159,6 +159,8 @@
   (global-set-key (kbd "C-x n") 'git-gutter:next-hunk)
   (global-set-key (kbd "C-x r") 'git-gutter:revert-hunk))
 
+(use-package ripgrep)
+
 ;; Setup Emacs to run bash as its primary shell.
 (setq shell-file-name "bash")
 (setq shell-command-switch "-c")
