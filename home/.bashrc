@@ -1,5 +1,6 @@
 export PATH=~/.bin:/usr/local/bin:/usr/local/sbin:${PATH}
 export LANG=en_US.utf-8
+export LC_ALL=en_US.utf-8
 
 if [ -f ~/.bashrc.local ] ; then
     source ~/.bashrc.local
