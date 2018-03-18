@@ -37,6 +37,9 @@ fi
 # Make Midnight Command look nice
 alias mc='mc --nosubshell --color --skin xoria256'
 
+# Make the airport tool easily accessible
+alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'
+
 # Hint Emacs on which Python to use for Pymacs
 export PYMACS_PYTHON=`which python`
 
