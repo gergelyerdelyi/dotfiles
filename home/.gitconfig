@@ -28,6 +28,10 @@
                                        \\\"$BASE\\\" nil \\\"$MERGED\\\") \
       (ediff-merge-files \\\"$LOCAL\\\" \\\"$REMOTE\\\" nil \\\"$MERGED\\\")))\"
 
+[mergetool.p4merge]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge -nb Base -nl Theirs -nr Mine $PWD/$BASE $PWD/$LOCAL $PWD/$REMOTE $PWD/$MERGED
+	trustExitCode = false
+
 [merge]
 	tool = p4merge
 [core]
