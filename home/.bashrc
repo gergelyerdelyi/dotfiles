@@ -17,6 +17,7 @@ then
    fi
 else
     for completion in /etc/bash_completion.d/git \
+                      /etc/bash_completion.d/git-prompt \
                       /usr/share/bash-completion/completions/git  \
                       /usr/share/git-core/contrib/completion/git-prompt.sh
     do
