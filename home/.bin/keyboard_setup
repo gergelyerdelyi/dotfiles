@@ -16,7 +16,7 @@ fi
 LEVEL3=/usr/share/X11/xkb/symbols/level3
 if ! grep PRSC ${LEVEL3} > /dev/null; then
   echo Patching level3 symbols ...
-  sudo sed -i '/ralt_switch/a key <PRSC> { type[Group1]="ONE_LEVEL", symbols[Group1] = [ ISO_Level3_Shift ] };' $LEVEL3
+  sudo sed -i '/"ralt_switch"/a key <PRSC> { type[Group1]="ONE_LEVEL", symbols[Group1] = [ ISO_Level3_Shift ] };' $LEVEL3
 fi
 
 echo Replacing evdev keycodes ...
