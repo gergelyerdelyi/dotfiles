@@ -1,3 +1,0 @@
-#!/bin/bash
-xkbcomp -I$HOME/.xkb ~/.xkb/keymap/gergo_us $DISPLAY #2>/dev/null
-
