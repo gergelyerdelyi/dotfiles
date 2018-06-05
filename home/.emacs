@@ -100,6 +100,9 @@
 ;; Integrate with Mac clipboard
 (setq x-select-enable-clipboard t)
 
+;; Use the whole screen
+(toggle-frame-maximized)
+
 (use-package flycheck)
 
 (use-package auto-complete
@@ -123,10 +126,6 @@
   (global-set-key (kbd "C-<Scroll_Lock>") 'ag-project)
   (setq ag-highlight-search t)
   (setq ag-reuse-buffers 't))
-
-(use-package maxframe
-  :config
-  (maximize-frame))
 
 (use-package css-mode)
 
