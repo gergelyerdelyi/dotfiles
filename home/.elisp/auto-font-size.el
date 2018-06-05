@@ -18,15 +18,18 @@
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
+(defun frame-display-mm-width ()
+    (car (cdr (assq 'mm-size  (frame-monitor-attributes)))))
+
 (defun font-for-mac-screen-size ()
   (cond
-   ((>= (x-display-mm-width) 700) "Hack 20")
-   ((< (x-display-mm-width) 400) "Hack 14")))
+   ((>= (frame-display-mm-width) 400) "Hack 16")
+   ((< (frame-display-mm-width) 400) "Hack 12")))
 
 (defun font-for-linux-screen-size ()
   (cond
-   ((>= (x-display-mm-width) 600) "Hack 14")
-   ((< (x-display-mm-width) 600) "Hack 12")))
+   ((>= (frame-display-mm-width) 400) "Hack 10")
+   ((< (frame-display-mm-width) 400) "Hack 9")))
 
 (defun font-for-screen ()
   (cond
@@ -41,7 +44,7 @@
         (if ideal-font
             (set-frame-parameter frame 'font ideal-font)
           (display-warning :warning
-                           (format "Can't set font size for display width %d mm" (x-display-mm-width)))))))
+                           (format "Can't set font size for display width %d mm" (frame-display-mm-width)))))))
 
 (defun reset-font ()
   (interactive)
