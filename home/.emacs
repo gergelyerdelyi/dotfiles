@@ -109,17 +109,36 @@
   :config
   (global-auto-complete-mode t))
 
-(use-package helm
-  :init
-  (require 'helm-config))
+(use-package helm)
 
-(use-package helm-cmd-t
-  :config
-  (require 'helm-C-x-b)
+(defun my-helm (&optional arg)
+  (interactive "p")
+  (unless helm-source-buffers-list
+    (setq helm-source-buffers-list
+          (helm-make-source "Buffers" 'helm-source-buffers)))
+  (unless helm-source-ls-git
+    (setq helm-source-ls-git
+          (helm-ls-git-build-ls-git-source)))
+  (cond ((helm-ls-git-root-dir)
+         (setq my-helm-sources
+               '(helm-source-buffers-list
+                 helm-source-files-in-current-dir
+                 helm-source-ls-git)))
+        (t (setq my-helm-sources
+                 '(helm-source-buffers-list
+                   helm-source-files-in-current-dir))))
+  (helm-set-local-variable 'helm-ls-git--current-branch (helm-ls-git--branch))
+  (helm :sources my-helm-sources
+        :ff-transformer-show-only-basename nil
+        :buffer "*helm*"))
+
+(use-package helm-ls-git
+  :init
+  (require 'helm-config)
   (require 'helm-for-files)
-  (exec-path-from-shell-copy-env "HELM_DEFAULT_REPO")
-  (setq helm-cmd-t-default-repo (getenv "HELM_DEFAULT_REPO"))
-  (global-set-key [Scroll_Lock] 'helm-C-x-b))
+  (require 'helm-buffers)
+  (global-set-key [Scroll_Lock] 'my-helm))
+
 
 (use-package ag
   :config
