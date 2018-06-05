@@ -117,7 +117,7 @@
 
 (use-package ag
   :config
-  (global-set-key (kbd "C-<f6>") 'ag-project)
+  (global-set-key (kbd "C-<Scroll_Lock>") 'ag-project)
   (setq ag-highlight-search t)
   (setq ag-reuse-buffers 't))
 
