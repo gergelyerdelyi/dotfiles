@@ -129,6 +129,8 @@
 
 (use-package elpy
   :config
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode)
   (elpy-enable))
 
 (use-package js2-mode
