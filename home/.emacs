@@ -110,9 +110,10 @@
 (use-package helm-cmd-t
   :config
   (require 'helm-C-x-b)
+  (require 'helm-for-files)
   (exec-path-from-shell-copy-env "HELM_DEFAULT_REPO")
   (setq helm-cmd-t-default-repo (getenv "HELM_DEFAULT_REPO"))
-  (global-set-key [f6] 'helm-C-x-b))
+  (global-set-key [Scroll_Lock] 'helm-C-x-b))
 
 (use-package ag
   :config
