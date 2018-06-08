@@ -137,12 +137,14 @@
   (require 'helm-config)
   (require 'helm-for-files)
   (require 'helm-buffers)
-  (global-set-key [Scroll_Lock] 'my-helm))
+  (global-set-key [Scroll_Lock] 'my-helm)
+  (global-set-key [f13] 'my-helm))
 
 
 (use-package ag
   :config
   (global-set-key (kbd "C-<Scroll_Lock>") 'ag-project)
+  (global-set-key (kbd "C-<f13>") 'ag-project)
   (setq ag-highlight-search t)
   (setq ag-reuse-buffers 't))
 
