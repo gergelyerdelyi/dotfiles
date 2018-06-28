@@ -252,6 +252,11 @@
 ;; y will suffice for yes
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; Load machine-specific, local init file
+(setq local-dot-emacs (expand-file-name "~/.emacs.local"))
+(when (file-readable-p local-dot-emacs)
+  (load-file local-dot-emacs))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
