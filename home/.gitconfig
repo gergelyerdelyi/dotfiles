@@ -15,7 +15,8 @@
 	fa = fetch --all
 	fu = fetch upstream
 	up = !git fetch upstream && git rebase --autostash upstream/master
-
+[diff]
+	noprefix = true
 [branch]
 	autosetuprebase = always
 
