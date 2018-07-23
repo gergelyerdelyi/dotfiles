@@ -29,7 +29,7 @@
 (defun font-for-linux-screen-size ()
   (cond
    ((>= (frame-display-mm-width) 400) "Hack 10")
-   ((< (frame-display-mm-width) 400) "Hack 9")))
+   ((< (frame-display-mm-width) 400) "Hack 10")))
 
 (defun font-for-screen ()
   (cond
