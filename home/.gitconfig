@@ -43,3 +43,6 @@
 	keepBackup = false
 	keepTemporaries = false
 	prompt = false
+
+# Remote refs for PRs: fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
+
