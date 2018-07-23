@@ -46,3 +46,6 @@
 
 # Remote refs for PRs: fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
 
+[include]
+	path = .gitconfig.local
+
