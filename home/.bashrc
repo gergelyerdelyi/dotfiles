@@ -2,10 +2,6 @@ export PATH=~/.bin:/usr/local/bin:/usr/local/sbin:${PATH}
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
 
-if [ -f ~/.bashrc.local ] ; then
-    source ~/.bashrc.local
-fi
-
 if hash brew 2>/dev/null
 then
     if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -43,3 +39,8 @@ alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+
+if [ -f ~/.bashrc.local ] ; then
+    source ~/.bashrc.local
+fi
+
