@@ -41,15 +41,5 @@ alias mc='mc --nosubshell --color --skin xoria256'
 # Make the airport tool easily accessible
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'
 
-export GOPATH=~/work/go
-export PATH=~/work/go/bin:$PATH
-
-if [ $(uname) == "Darwin" ] && hash go 2>/dev/null
-then
-    echo Darwin with Go
-    launchctl setenv GOPATH $(go env GOPATH)
-    launchctl setenv GOROOT $(go env GOROOT)
-fi
-
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
