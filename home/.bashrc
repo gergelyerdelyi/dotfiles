@@ -41,9 +41,6 @@ alias mc='mc --nosubshell --color --skin xoria256'
 # Make the airport tool easily accessible
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'
 
-# Hint Emacs on which Python to use for Pymacs
-export PYMACS_PYTHON=`which python`
-
 export GOPATH=~/work/go
 export PATH=~/work/go/bin:$PATH
 
@@ -53,14 +50,6 @@ then
     launchctl setenv GOPATH $(go env GOPATH)
     launchctl setenv GOROOT $(go env GOROOT)
 fi
-
-function init_python_env ()
-{
-    easy_install ropemacs
-    easy_install ropemode
-    easy_install pylint
-    easy_install elpy
-}
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
