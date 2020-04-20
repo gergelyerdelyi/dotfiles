@@ -141,6 +141,7 @@
   (global-set-key [f13] 'my-helm)
   (global-set-key (kbd "C-p") 'my-helm))
 
+(use-package neotree)
 
 (use-package ag
   :config
@@ -151,7 +152,12 @@
 
 (use-package css-mode)
 
+(use-package pyenv-mode)
+
 (use-package elpy
+  :defer t
+  :init
+  (advice-add 'python-mode :before 'elpy-enable)
   :config
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode)
