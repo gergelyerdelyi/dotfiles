@@ -19,6 +19,8 @@
 
 [diff]
 	noprefix = true
+	algorithm = patience
+
 [branch]
 	autosetuprebase = always
 
