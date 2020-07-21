@@ -138,7 +138,6 @@
   (require 'helm-for-files)
   (require 'helm-buffers)
   (global-set-key [Scroll_Lock] 'my-helm)
-  (global-set-key [f13] 'my-helm)
   (global-set-key (kbd "C-p") 'my-helm))
 
 (use-package neotree)
