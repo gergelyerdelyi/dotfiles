@@ -3,6 +3,7 @@
 	diff = auto
 	interactive = auto
 	status = auto
+
 [alias]
 	s = status -sb
 	d = diff
@@ -15,13 +16,19 @@
 	fa = fetch --all
 	fu = fetch upstream
 	up = !git fetch upstream && git rebase --autostash upstream/master
+
 [diff]
 	noprefix = true
 [branch]
 	autosetuprebase = always
 
+[mergetool]
+	keepBackup = false
+	keepTemporaries = false
+	prompt = false
+
 [mergetool.ediff]
-    cmd = NO_DESKTOP_SAVE_MODE=1 /Applications/Emacs.app/Contents/MacOS/Emacs --eval \" \
+    cmd = NO_DESKTOP_SAVE_MODE=1 emacs --eval \" \
 (progn \
   (setq ediff-quit-hook 'kill-emacs) \
   (if (file-readable-p \\\"$BASE\\\") \
@@ -29,23 +36,20 @@
                                        \\\"$BASE\\\" nil \\\"$MERGED\\\") \
       (ediff-merge-files \\\"$LOCAL\\\" \\\"$REMOTE\\\" nil \\\"$MERGED\\\")))\"
 
-[mergetool.p4merge]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge -nb Base -nl Theirs -nr Mine $PWD/$BASE $PWD/$LOCAL $PWD/$REMOTE $PWD/$MERGED
-	trustExitCode = false
+[mergetool.smerge]
+	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
 
 [merge]
-	tool = p4merge
+	tool = smerge
+
 [core]
 	quotepath = false
+
 [push]
 	default = current
-[mergetool]
-	keepBackup = false
-	keepTemporaries = false
-	prompt = false
 
 # Remote refs for PRs: fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
 
 [include]
 	path = .gitconfig.local
-
