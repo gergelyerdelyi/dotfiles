@@ -159,6 +159,7 @@
   (advice-add 'python-mode :before 'elpy-enable)
   :config
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (setq elpy-rpc-python-command "python3")
   (add-hook 'elpy-mode-hook 'flycheck-mode)
   (elpy-enable))
 
