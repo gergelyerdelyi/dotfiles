@@ -28,6 +28,9 @@
 
 ;; Highlight trailing whitespace
 (setq-default show-trailing-whitespace t)
+;; ...except in the shell where it is really annoying
+(add-hook 'term-mode-hook (lambda ()
+                             (setq show-trailing-whitespace nil)))
 
 (defun backward-symbol (&optional arg)
   "Move backward until encountering the beginning of a symbol.
@@ -99,6 +102,8 @@
 
 ;; Use the whole screen
 (toggle-frame-maximized)
+
+(use-package shell-pop)
 
 (use-package flycheck)
 
