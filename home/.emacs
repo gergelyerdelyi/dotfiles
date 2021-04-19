@@ -21,10 +21,9 @@
 
 (use-package exec-path-from-shell
   :config
-  (when (memq window-system '(mac ns))
-    (exec-path-from-shell-initialize)
-    (exec-path-from-shell-copy-env "PATH")
-    (exec-path-from-shell-copy-env "PYTHONPATH")))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "PATH")
+  (exec-path-from-shell-copy-env "PYTHONPATH"))
 
 ;; UTF-8 is great(tm)
 (set-language-environment "utf-8")

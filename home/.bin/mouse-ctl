@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Re-enable natural mouse scrolling in GNOME as it seems to lose it each time the mouse is disconnected.
+#
+# This will be run by a udev rule in let's say /etc/udev/rules.d/10-mouse.rules:
+# SUBSYSTEM=="input", ACTION=="add", ENV{DEVNAME}=="/dev/input/mouse?" RUN+="/usr/local/bin/mouse-ctl"
+# 
+# udev rules can be reloaded with udevadm control --reload-rules
+
+# Try and apply the setting for all the logged in users. Well, the one, most likely. ;)
+for USER in `w -h | cut -d\  -f1 | sort | uniq`
+do
+    export USER_ID=$(getent passwd "$USER" | cut -d : -f 3)
+    # Turn natural mouse scrolling on and off to make it active
+    sudo -u $USER DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${USER_ID}/bus" gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
+    sudo -u $USER DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${USER_ID}/bus" gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
+done
+
