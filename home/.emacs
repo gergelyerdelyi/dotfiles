@@ -1,8 +1,6 @@
 ;; Magic .emacs file, hacked together by gergely.erdelyi@gmail.com
 ;; Bits and pieces of this file come from all over the 'Net.
 
-(require 'cl)
-
 ;; Get the installed packages ready to roll right away
 (require 'package)
 (package-initialize)
