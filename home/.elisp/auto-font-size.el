@@ -28,7 +28,7 @@
 
 (defun font-for-linux-screen-size ()
   (cond
-   ((>= (frame-display-mm-width) 400) "Hack 13")
+   ((>= (frame-display-mm-width) 400) "Hack 16")
    ((< (frame-display-mm-width) 400) "Hack 13")))
 
 (defun font-for-screen ()
