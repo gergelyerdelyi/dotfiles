@@ -148,6 +148,19 @@
 
 (use-package css-mode)
 
+;; Set up before-save hooks to format buffer and add/delete imports.
+;; Make sure you don't have other gofmt/goimports hooks enabled.
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+
+(use-package go-mode
+  :config (add-hook 'go-mode-hook #'lsp-go-install-save-hooks))
+
+(use-package lsp-mode
+    :hook (go-mode . lsp-deferred)
+    :commands (lsp lsp-deferred))
+
 (use-package pyenv-mode)
 
 (use-package elpy
