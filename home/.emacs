@@ -186,12 +186,11 @@
   (push 'set-frame-font after-make-frame-functions)
   (add-hook 'window-size-change-functions 'set-frame-font))
 
-(use-package solarized-theme)
+(use-package color-theme-sanityinc-tomorrow)
 
 (use-package powerline
   :config
-  (powerline-default-theme)
-  (setq solarized-high-contrast-mode-line t))
+  (powerline-default-theme))
 
 (use-package git-gutter
   :config
