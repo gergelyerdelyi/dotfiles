@@ -126,13 +126,10 @@
         :ff-transformer-show-only-basename nil
         :buffer "*helm*"))
 
-(use-package helm-ls-git
-  :init
-  (require 'helm-config)
-  (require 'helm-for-files)
-  (require 'helm-buffers)
-  (global-set-key [Scroll_Lock] 'my-helm)
-  (global-set-key (kbd "C-p") 'my-helm))
+(use-package neotree
+  :config
+  (setq projectile-switch-project-action 'neotree-projectile-action)
+  (global-set-key (kbd "<f8>") 'neotree-toggle))
 
 (use-package projectile)
 
