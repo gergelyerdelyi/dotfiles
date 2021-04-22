@@ -118,18 +118,10 @@
   (unless helm-source-buffers-list
     (setq helm-source-buffers-list
           (helm-make-source "Buffers" 'helm-source-buffers)))
-  (unless helm-source-ls-git
-    (setq helm-source-ls-git
-          (helm-ls-git-build-ls-git-source)))
-  (cond ((helm-ls-git-root-dir)
-         (setq my-helm-sources
-               '(helm-source-buffers-list
-                 helm-source-files-in-current-dir
-                 helm-source-ls-git)))
-        (t (setq my-helm-sources
-                 '(helm-source-buffers-list
-                   helm-source-files-in-current-dir))))
-  (helm-set-local-variable 'helm-ls-git--current-branch (helm-ls-git--branch))
+  (setq my-helm-sources
+        '(helm-source-projectile-buffers-list
+          helm-source-projectile-files-list
+          helm-source-buffers-list))
   (helm :sources my-helm-sources
         :ff-transformer-show-only-basename nil
         :buffer "*helm*"))
@@ -142,7 +134,13 @@
   (global-set-key [Scroll_Lock] 'my-helm)
   (global-set-key (kbd "C-p") 'my-helm))
 
-(use-package neotree)
+(use-package projectile)
+
+(use-package helm-projectile
+  :config
+  (helm-projectile-on)
+  (global-set-key (kbd "<XF86Launch7>") 'my-helm)
+  (global-set-key (kbd "M-<XF86Launch7>") 'projectile-commander))
 
 (use-package ag
   :config
