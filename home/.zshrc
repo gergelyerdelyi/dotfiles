@@ -63,6 +63,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+
+# Disable shared history
+unsetopt share_history
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
