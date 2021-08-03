@@ -1,83 +1,49 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="${HOME}/.oh-my-zsh"
+# Use the Emacs way on the cmdline
+bindkey -e
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gentoo"
+autoload -Uz bashcompinit compinit vcs_info
+bashcompinit
+compinit
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+zstyle ':vcs_info:*' disable bzr cdv cvs darcs hg mtn svk svn tla
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' actionformats \
+       '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats '%F{2}(%b)%f'
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+setopt PROMPT_SUBST
 
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-plugins=()
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
+precmd() {
+    # As always first run the system so everything is setup correctly.
+    vcs_info
+    if [[ -z ${vcs_info_msg_0_} ]]; then
+		PS1='%F{blue}%m%F{5}:%F{grey}%5~ %f%# '
+    else
+		PS1='%F{blue}%m%F{5}:%F{grey}%3~ ${vcs_info_msg_0_} %f%# '
+    fi
+}
 
 # Disable shared history
 unsetopt share_history
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vi'
-else
-  export EDITOR='micro'
-fi
 
 # Load https://github.com/andsens/homeshick
 if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
@@ -85,10 +51,19 @@ if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 fi
 
-# Keep the environment in sync between the two shells
-if [ -f ~/.bashrc.local ]; then
-  source ~/.bashrc.local
-fi
+[[ -r $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
 
 # Useful aliases
 alias m='micro'
+
+setup_homeshick () {
+    git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+	(cd $HOME/.homesick/repos/homeshick; git checkout -b v2.0.0 eea2fc572cafd900c4f8e9a49922f7902959795f)
+}
+
+setup_pyenv () {
+	git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+	(cd $HOME/.pyenv; git checkout -b v2.0.4 cef86ce462674c726cb60ddd0e19da0bf39a27c9)
+	git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
+	(cd $HOME/.pyenv/plugins/pyenv-virtualenv; git checkout -b v1.1.5 294f64f76b6b7fbf1a22a4ebba7710faa75c21f7)
+}
