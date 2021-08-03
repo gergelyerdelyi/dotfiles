@@ -15,7 +15,7 @@
 	ff = merge --ff-only
 	fa = fetch --all
 	fu = fetch upstream
-	up = !git fetch upstream && git rebase --autostash upstream/master
+	up = !git fetch upstream && git rebase --autostash upstream/main
 
 [diff]
 	noprefix = true
