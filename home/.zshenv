@@ -17,7 +17,7 @@ SAVEHIST=1000
 COMPOSE_DOCKER_CLI_BUILD=1
 DOCKER_BUILDKIT=1
 
-PATH=~/.local/bin:$PATH
+PATH=~/.local/bin:/opt/homebrew/bin:$PATH
 
 if [ -d $HOME/.pyenv ]; then
     PYENV_ROOT="$HOME/.pyenv"
