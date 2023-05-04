@@ -1,0 +1,14 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "cmd+f",
+        "command": "runCommands",
+        "args": {
+          "commands": [
+            "workbench.action.focusActiveEditorGroup",
+            "actions.find",
+          ],
+          "when": "explorerFocus"
+        },
+      }
+]
