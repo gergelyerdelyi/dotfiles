@@ -1,0 +1,67 @@
+{
+  "title": "MacOS PC Keyboard Swap ISO Tilde in English Layout",
+  "rules": [
+    {
+      "description": "Tilde to ISO key",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": [
+                  "any"
+              ]
+          }
+        },
+          "to": [
+            {
+              "key_code": "non_us_backslash"
+            }
+          ],
+          "conditions": [
+            {
+                "input_sources": [
+                    {
+                        "language": "en"
+                    }
+                ],
+                "type": "input_source_if"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ISO to tilde",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {
+                "optional": [
+                    "any"
+                ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ],
+          "conditions": [
+            {
+                "input_sources": [
+                    {
+                        "language": "en"
+                    }
+                ],
+                "type": "input_source_if"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
