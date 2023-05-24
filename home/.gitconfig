@@ -12,10 +12,11 @@
 	c = commit
 	b = branch
 	co = checkout
-	ff = merge --ff-only
 	fa = fetch --all
 	fu = fetch upstream
-	up = !git fetch upstream && git rebase --autostash upstream/main
+	o2u = !git remote rename origin upstream
+        up = "!git fetch upstream && if git branch -r | grep upstream/main; then git rebase --autostash upstream/main; else git rebase --autostash upstream/master ;fi"
+
 
 [diff]
 	noprefix = true
