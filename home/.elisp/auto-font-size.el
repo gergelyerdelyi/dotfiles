@@ -23,7 +23,7 @@
 
 (defun font-for-mac-screen-size ()
   (cond
-   ((>= (frame-display-mm-width) 400) "Hack 16")
+   ((>= (frame-display-mm-width) 400) "Hack 14")
    ((< (frame-display-mm-width) 400) "Hack 12")))
 
 (defun font-for-linux-screen-size ()
