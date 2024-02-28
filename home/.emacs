@@ -9,10 +9,6 @@
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")))
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(require 'use-package)
 (setq use-package-always-ensure t)
 
 (add-to-list 'load-path (expand-file-name "~/.elisp"))
@@ -105,8 +101,6 @@
 
 (use-package shell-pop)
 
-(use-package flycheck)
-
 (use-package auto-complete
   :config
   (global-auto-complete-mode t))
@@ -157,21 +151,7 @@
 (use-package go-mode
   :config (add-hook 'go-mode-hook #'lsp-go-install-save-hooks))
 
-(use-package lsp-mode
-    :hook (go-mode . lsp-deferred)
-    :commands (lsp lsp-deferred))
-
 (use-package pyenv-mode)
-
-(use-package elpy
-  :defer t
-  :init
-  (advice-add 'python-mode :before 'elpy-enable)
-  :config
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (setq elpy-rpc-python-command "python3")
-  (add-hook 'elpy-mode-hook 'flycheck-mode)
-  (elpy-enable))
 
 (use-package js2-mode
   :config
