@@ -181,7 +181,7 @@
 (use-package ripgrep)
 
 ;; Setup Emacs to run bash as its primary shell.
-(setq shell-file-name "bash")
+(setq shell-file-name "zsh")
 (setq shell-command-switch "-c")
 (setq explicit-shell-file-name shell-file-name)
 (setenv "SHELL" shell-file-name)
