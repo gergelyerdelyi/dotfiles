@@ -180,6 +180,14 @@
 
 (use-package ripgrep)
 
+(use-package treesit-auto
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
+
+
 ;; Setup Emacs to run bash as its primary shell.
 (setq shell-file-name "zsh")
 (setq shell-command-switch "-c")
@@ -262,7 +270,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (solarized-light)))
+ '(custom-enabled-themes '(solarized-light))
  '(custom-safe-themes
-   (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default))))
+   '("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default))
+ '(package-selected-packages
+   '(treesit-auto activities sly ripgrep git-gutter powerline color-theme-sanityinc-tomorrow js2-mode elpy pyenv-mode lsp-mode go-mode ag helm-projectile projectile neotree helm auto-complete flycheck shell-pop exec-path-from-shell use-package)))
