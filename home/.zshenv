@@ -6,7 +6,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vi'
 else
-  export EDITOR='micro'
+  export EDITOR='vim'
 fi
 
 HISTFILE=~/.zsh_history
