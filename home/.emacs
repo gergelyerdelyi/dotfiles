@@ -117,6 +117,8 @@
 (global-set-key (kbd "C-<next>") 'other-window-previous)
 (global-set-key (kbd "C-}") 'other-window-previous)
 (global-set-key (kbd "C-`") 'other-frame)
+(global-set-key [home] 'beginning-of-line-text)
+(global-set-key [end] 'move-end-of-line)
 
 ;; It's nice to be able to move around by full symbols
 (global-set-key '[M-left]  'backward-symbol)
